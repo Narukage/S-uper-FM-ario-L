@@ -53,11 +53,17 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L/usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/libsfml-graphics.so /usr/lib/x86_64-linux-gnu/libsfml-system.so /usr/lib/x86_64-linux-gnu/libsfml-window.so
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pacman
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pacman: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pacman: /usr/lib/x86_64-linux-gnu/libsfml-system.so
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pacman: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pacman: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
@@ -66,12 +72,12 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/pacman: ${OBJECTFILES}
 ${OBJECTDIR}/Pacman.o: Pacman.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Pacman.o Pacman.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Pacman.o Pacman.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:
