@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=pacman
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/pacman
+CND_ARTIFACT_NAME_Debug=preuba
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/preuba
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=pacman.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/pacman.tar
+CND_PACKAGE_NAME_Debug=preuba.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/preuba.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=pacman
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/pacman
+CND_ARTIFACT_NAME_Release=preuba
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/preuba
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=pacman.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/pacman.tar
+CND_PACKAGE_NAME_Release=preuba.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/preuba.tar
 #
 # include compiler specific variables
 #
