@@ -14,6 +14,7 @@ private:
     sf::Event evento;
     
     Pacman *pacman;
+    Map *mapa;
     
     bool isPlay = true;
     

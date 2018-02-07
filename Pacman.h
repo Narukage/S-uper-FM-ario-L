@@ -31,13 +31,13 @@ public:
 
     void pause(); //stop pacman animation
     void resume(); //resume pacman animation
-    void restart();
+    void restart(); //reinicia su posicion en el mapa
     void kill();
-    void isAlive();
+    bool isAlive();
     void updatePos(int presionado); //pacman movement
     void interpolate(float d_time);    //pacman render interpolation
     float getVelocity();
-    void setDirection(Pacman::Direction direction);
+    void setDirection(Pacman::Direction direction); //cambiar direccion en la que mira
     sf::Sprite getSprite();
     Pacman();
     

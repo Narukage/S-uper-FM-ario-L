@@ -64,6 +64,39 @@ sf::Sprite Pacman::getSprite(){
     return misprite;
 }
 
+float Pacman::getVelocity(){
+    return playerSpeed;
+}
+
+void Pacman::setDirection(Pacman::Direction direction){
+    if(direction!=direction_){
+        direction_=direction;
+    }
+}
+
+void Pacman::pause(){
+    
+}
+
+void Pacman::restart(){
+    
+}
+
+void Pacman::resume(){
+    
+}
+
+void Pacman::kill(){
+    
+}
+
+bool Pacman::isAlive(){
+    if(alive){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 
 

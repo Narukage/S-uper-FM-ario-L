@@ -12,8 +12,10 @@ void Game::inicializar(){
     
     window.setFramerateLimit(60);
     window.setVerticalSyncEnabled(true);
+    //crear pacman
     pacman = new Pacman();
     //crear mapa
+    mapa = new Map();
     //crear fantasmas
     //crear objetos
     //asignar posiciones
