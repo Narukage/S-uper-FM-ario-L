@@ -1,8 +1,9 @@
 #include "Map.h"
 
 Map::Map(){
-    //rellenar mapa pero no se como jeje
-    
+    //rellenar mapa
+    cocos = 16;
+
 }
 
 int Map::getWidth(){
@@ -15,5 +16,9 @@ int Map::getHeight(){
 
 Map Map::getMap(){
     return this;
+}
+
+int Map::getTotalCocos(){
+    return cocos;
 }
 

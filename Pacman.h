@@ -12,6 +12,7 @@ private:
     sf::Vector2f current_pos;
     sf::Vector2f dir_move;
     sf::Sprite misprite;
+    sf::Texture textura; 
     
     enum Direction{
         Left = -1,
@@ -24,7 +25,7 @@ private:
     Direction direction_;
     bool paused;
     bool alive;
-    sf::Texture textura;  
+    int score;
     
     
 public:
@@ -40,5 +41,6 @@ public:
     void setDirection(Pacman::Direction direction); //cambiar direccion en la que mira
     sf::Sprite getSprite();
     Pacman();
+    int getScore();
     
 };

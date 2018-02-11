@@ -5,6 +5,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Pacman.h"
+#include "Map.h"
 
 
 class Game{

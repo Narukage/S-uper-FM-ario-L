@@ -8,8 +8,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/fv/NetBeansProjects/preuba/Game.h</file>
+            <file>file:/home/fv/NetBeansProjects/preuba/Map.cpp</file>
             <file>file:/home/fv/NetBeansProjects/preuba/Game.cpp</file>
             <file>file:/home/fv/NetBeansProjects/preuba/main.cpp</file>
+            <file>file:/home/fv/NetBeansProjects/preuba/Map.h</file>
             <file>file:/home/fv/NetBeansProjects/preuba/Pacman.h</file>
             <file>file:/home/fv/NetBeansProjects/preuba/Pacman.cpp</file>
         </group>

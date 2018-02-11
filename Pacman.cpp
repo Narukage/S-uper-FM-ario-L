@@ -11,6 +11,7 @@ Pacman::Pacman(){
     direction_ = Right; //empieza mirando a la derecha
     paused = false;
     alive = true;
+    score = 0;
 
     if(!textura.loadFromFile("/home/fv/Escritorio/Pac-Man_sprite.png")){
            std::cout<<"Textura no aplicada"<<std::endl;
@@ -96,6 +97,10 @@ bool Pacman::isAlive(){
     }else{
         return false;
     }
+}
+
+int Pacman::getScore(){
+    return score;
 }
 
 
