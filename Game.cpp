@@ -1,11 +1,13 @@
 #include "Game.h"
 
+
 Game::Game(): window(sf::VideoMode(800,600),"Ventana de SFML"){
-    
+   
 }
 
 Game::~Game(){
     delete pacman;
+    delete mapa;
 }
 
 void Game::inicializar(){
@@ -16,7 +18,11 @@ void Game::inicializar(){
     pacman = new Pacman();
     //crear mapa
     mapa = new Map();
+    collision = new CollisionManager();
     //crear fantasmas
+   /* fantasma1 = new Ghost();
+    fantasma2 = new Ghost();
+    fantasma3 = new Ghost();*/
     //crear objetos
     //asignar posiciones
     
@@ -27,9 +33,6 @@ void Game::eventos(){
     while(window.pollEvent(evento)){
     
         switch(evento.type){
-
-                    case sf::Event::Closed:
-                        isPlay = false;
 
                     case sf::Event::KeyPressed:
                         if(evento.key.code==sf::Keyboard::A){
@@ -46,6 +49,10 @@ void Game::eventos(){
                         
                         if(evento.key.code==sf::Keyboard::W){
                             presionado = W;
+                        }else
+                        
+                        if(evento.key.code==sf::Keyboard::Q){
+                            isPlay = false;
                         }
                 }
     }
@@ -62,6 +69,10 @@ void Game::render(float d_time){
     window.clear(sf::Color::Black);
     pacman->interpolate(d_time);
     window.draw(pacman->getSprite());
+    //dibujar mapa
+    mapa->printMap(window);
+    //dibujar fantasmas
+    
     window.display();
 }
 

@@ -35,9 +35,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/CollisionManager.o \
 	${OBJECTDIR}/Game.o \
+	${OBJECTDIR}/Ghost.o \
 	${OBJECTDIR}/Map.o \
 	${OBJECTDIR}/Pacman.o \
+	${OBJECTDIR}/StateManager.o \
 	${OBJECTDIR}/main.o
 
 
@@ -65,10 +68,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/preuba: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/preuba ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/CollisionManager.o: CollisionManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollisionManager.o CollisionManager.cpp
+
 ${OBJECTDIR}/Game.o: Game.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Game.o Game.cpp
+
+${OBJECTDIR}/Ghost.o: Ghost.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Ghost.o Ghost.cpp
 
 ${OBJECTDIR}/Map.o: Map.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -79,6 +92,11 @@ ${OBJECTDIR}/Pacman.o: Pacman.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Pacman.o Pacman.cpp
+
+${OBJECTDIR}/StateManager.o: StateManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StateManager.o StateManager.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

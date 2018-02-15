@@ -38,9 +38,12 @@ public:
     void updatePos(int presionado); //pacman movement
     void interpolate(float d_time);    //pacman render interpolation
     float getVelocity();
+    sf::Vector2f getCurrentPosition();
     void setDirection(Pacman::Direction direction); //cambiar direccion en la que mira
     sf::Sprite getSprite();
     Pacman();
+    ~Pacman();
     int getScore();
+    const sf::Sprite &getSprite() const;
     
 };

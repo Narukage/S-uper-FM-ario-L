@@ -1,4 +1,6 @@
 #include "Pacman.h"
+#include "CollisionManager.h"
+#include "Map.h"
 
 //inicializar variables y aplicar textura en el constructor??
 Pacman::Pacman(){
@@ -29,26 +31,22 @@ void Pacman::updatePos(int presionado){
     dir_move.y=0.f;
          
     if(presionado==1){
-         std::cout<<"A presionado"<<std::endl;
          dir_move.x=-1.f;
          dir_move.y=0.f;
     }
     
     if(presionado==2){
-         std::cout<<"D presionado"<<std::endl;
          dir_move.x=1.f;
          dir_move.y=0.f;
     }
     
     if(presionado==3){
-         std::cout<<"S presionada"<<std::endl;
          dir_move.x=0.f;
          dir_move.y=1.f;
     }
     
     
     if(presionado==4){
-         std::cout<<"W presionado"<<std::endl;
          dir_move.x=0.f;
          dir_move.y=-1.f;
     }
@@ -56,8 +54,10 @@ void Pacman::updatePos(int presionado){
 }
 
 void Pacman::interpolate(float d_time){
+    
         current_pos.x += dir_move.x * playerSpeed * d_time;
         current_pos.y += dir_move.y * playerSpeed * d_time;
+        
         misprite.setPosition(current_pos);
 }
 
@@ -102,6 +102,19 @@ bool Pacman::isAlive(){
 int Pacman::getScore(){
     return score;
 }
+
+sf::Vector2f Pacman::getCurrentPosition(){
+    return current_pos;
+}
+
+Pacman::~Pacman(){
+    
+}
+
+const sf::Sprite &Pacman::getSprite() const{
+    return misprite;
+}
+
 
 
 
