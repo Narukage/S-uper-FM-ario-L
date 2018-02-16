@@ -1,3 +1,7 @@
+#ifndef COLLISIONMANAGER_H
+#define COLLISIONMANAGER_H
+#endif /* PACMAN_H */
+
 #include "CollisionManager.h"
 
 CollisionManager::CollisionManager(){

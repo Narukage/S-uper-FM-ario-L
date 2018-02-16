@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=preuba
+PROJECTNAME=Pacman
 
 # Active Configuration
 DEFAULTCONF=Debug

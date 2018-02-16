@@ -67,7 +67,8 @@ void Game::update(){
 void Game::render(float d_time){
     
     window.clear(sf::Color::Black);
-    pacman->interpolate(d_time);
+    sf::Vector2f current_pos = pacman->getCurrentPosition();
+    pacman->interpolate(d_time, mapa);
     window.draw(pacman->getSprite());
     //dibujar mapa
     mapa->printMap(window);

@@ -1,9 +1,13 @@
-#include <iostream>
-#include <SFML/Graphics.hpp>
-
 #ifndef PACMAN_H
 #define PACMAN_H
 #endif /* PACMAN_H */
+
+#include <iostream>
+#include <SFML/Graphics.hpp>
+#include "CollisionManager.h"
+#include "Map.h"
+
+
 
 class Pacman{
     
@@ -36,7 +40,7 @@ public:
     void kill();
     bool isAlive();
     void updatePos(int presionado); //pacman movement
-    void interpolate(float d_time);    //pacman render interpolation
+    void interpolate(float d_time, Map* mapa);    //pacman render interpolation
     float getVelocity();
     sf::Vector2f getCurrentPosition();
     void setDirection(Pacman::Direction direction); //cambiar direccion en la que mira

@@ -1,13 +1,10 @@
 
 #ifndef GAME_H
 #define GAME_H
-#define SIZE 10
 #endif /* GAME_H */
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Pacman.h"
-#include "Map.h"
-#include "CollisionManager.h"
 #include "Ghost.h"
 
 
