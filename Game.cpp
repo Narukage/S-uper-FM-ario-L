@@ -60,7 +60,7 @@ void Game::eventos(){
 
 void Game::update(){
     
-    pacman->updatePos(presionado);  //Actualizamos posición personaje
+    pacman->updatePos(presionado, mapa);  //Actualizamos posición personaje
     presionado = none;                              //Estado de movimiento = 0
 }
 
@@ -68,8 +68,10 @@ void Game::render(float d_time){
     
     window.clear(sf::Color::Black);
     sf::Vector2f current_pos = pacman->getCurrentPosition();
-    pacman->interpolate(d_time, mapa);
+    //pacman->interpolate(d_time, mapa);
     window.draw(pacman->getSprite());
+    window.draw(pacman->getText());
+    window.draw(pacman->getPuntos());
     //dibujar mapa
     mapa->printMap(window);
     //dibujar fantasmas

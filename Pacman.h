@@ -3,6 +3,7 @@
 #endif /* PACMAN_H */
 
 #include <iostream>
+#include <sstream>
 #include <SFML/Graphics.hpp>
 #include "CollisionManager.h"
 #include "Map.h"
@@ -15,8 +16,15 @@ private:
     float playerSpeed;
     sf::Vector2f current_pos;
     sf::Vector2f dir_move;
+    sf::Vector2f movement;
     sf::Sprite misprite;
-    sf::Texture textura; 
+    sf::Texture textura;
+    sf::Font font;
+    sf::Text text;
+    sf::Text mytext;
+        
+    int fila;
+    int columna;
     
     enum Direction{
         Left = -1,
@@ -39,7 +47,7 @@ public:
     void restart(); //reinicia su posicion en el mapa
     void kill();
     bool isAlive();
-    void updatePos(int presionado); //pacman movement
+    void updatePos(int presionado, Map* mapa); //pacman movement
     void interpolate(float d_time, Map* mapa);    //pacman render interpolation
     float getVelocity();
     sf::Vector2f getCurrentPosition();
@@ -49,5 +57,7 @@ public:
     ~Pacman();
     int getScore();
     const sf::Sprite &getSprite() const;
+    sf::Text getText(){ return text; };
+    sf::Text getPuntos();
     
 };

@@ -15,36 +15,40 @@ class Map{
             //array de punteros a punteros a array
            //int **mapa = new int* [SIZE];
            sf::Texture textura;
-            sf::Sprite sprite;
-            int map[10][10] = {
-                       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},     //1 = pared
-                       {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},     //0 = vacio
-                       {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-                       {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-                       {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-                       {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-                       {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-                       {1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-                       {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-                       {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+           sf::CircleShape coco;
+           sf::Sprite sprite;
+            int map[11][12] = {
+                       {1,1,1,1,1,1,1,1,2,1,1,1}, //1 pared
+                       {1,2,2,2,2,2,2,1,2,1,2,1}, //2 coco
+                       {1,2,1,1,2,1,2,1,2,1,2,1}, //0 vacio
+                       {1,2,2,1,2,1,2,2,2,1,2,1},
+                       {1,2,2,1,2,1,1,1,2,1,2,1},
+                       {1,2,2,2,2,2,2,1,2,2,2,1},
+                       {1,2,2,1,2,1,1,1,2,1,2,1},
+                       {1,2,2,1,2,1,2,2,2,1,2,1},
+                       {1,2,1,1,2,1,2,1,2,1,2,1},
+                       {1,0,2,2,2,2,2,1,2,1,2,1},
+                       {1,1,1,1,1,1,1,1,2,1,1,1}
+
                    };
-        
         
             int cocos;
             sf::Sprite pared;
+
 
     public:
         Map();
         ~Map();
         void printMap(sf::RenderWindow& window);
         bool ocupada(int posx, int posy);
-        int getTotalCocos();
+        bool hayCoco(int posx, int posy);
         
         const sf::Sprite &getSprite() const;
         
         //GETTERS && SETTERS
         int getWidth()  { return WIDTH;  };
         int getHeight() { return HEIGHT; };
+        int getTotalCocos() { return cocos; };
             
 };
 
