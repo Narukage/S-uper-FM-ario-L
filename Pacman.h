@@ -18,13 +18,17 @@ private:
     sf::Vector2f dir_move;
     sf::Vector2f movement;
     sf::Sprite misprite;
+    sf::Sprite vida;
     sf::Texture textura;
     sf::Font font;
     sf::Text text;
+    sf::Text text2;
     sf::Text mytext;
+    sf::Text mytext2;
         
     int fila;
     int columna;
+    int vidas;
     
     enum Direction{
         Left = -1,
@@ -59,5 +63,7 @@ public:
     const sf::Sprite &getSprite() const;
     sf::Text getText(){ return text; };
     sf::Text getPuntos();
+    sf::Sprite getVidas();
+    sf::Text getTextVidas(){ return text2; };
     
 };

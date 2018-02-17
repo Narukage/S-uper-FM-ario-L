@@ -16,6 +16,7 @@ Pacman::Pacman(){
     score = 0;
     fila = 1;
     columna = 1;
+    vidas = 3;
 
     if(!textura.loadFromFile("/home/naru/Escritorio/Pac-Man_sprite.png")){
            std::cout<<"Textura no aplicada"<<std::endl;
@@ -35,6 +36,11 @@ Pacman::Pacman(){
     text.setColor(sf::Color::Red);
     text.setString("Score:");
     
+    text2.setFont(font);
+    text2.setPosition(620,70);
+    text2.setColor(sf::Color::Red);
+    text2.setString("Lifes:");
+    
     
 
 }
@@ -48,6 +54,42 @@ sf::Text Pacman::getPuntos(){
     mytext.setPosition(750,0);
     
     return mytext;
+}
+
+sf::Sprite Pacman::getVidas(){
+    if(vidas==3){
+        if(!textura.loadFromFile("/home/naru/Escritorio/3vidas.png")){
+           std::cout<<"Textura no aplicada"<<std::endl;
+        }
+        
+    vida.setTexture(textura);
+    vida.setPosition(645,120);
+    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.2,0.2));
+    
+    }
+    
+    if(vidas==2){
+        if(!textura.loadFromFile("/home/naru/Escritorio/2vidas.png")){
+           std::cout<<"Textura no aplicada"<<std::endl;
+        }
+        
+    vida.setTexture(textura);
+    vida.setPosition(645,120);
+    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.2,0.2));
+    }
+    
+    if(vidas==1){
+        if(!textura.loadFromFile("/home/naru/Escritorio/Pac-Man_sprite.png")){
+           std::cout<<"Textura no aplicada"<<std::endl;
+        }
+        
+    vida.setTexture(textura);
+    vida.setPosition(645,120);
+    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.2,0.2));
+    }
+    
+    return vida;
+    
 }
 
 void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque cada posicion de la matriz son 50x50 pixeles

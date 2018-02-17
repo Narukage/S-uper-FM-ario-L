@@ -20,8 +20,8 @@ void Game::inicializar(){
     mapa = new Map();
     collision = new CollisionManager();
     //crear fantasmas
-   /* fantasma1 = new Ghost();
-    fantasma2 = new Ghost();
+    fantasma1 = new Ghost();
+    /*fantasma2 = new Ghost();
     fantasma3 = new Ghost();*/
     //crear objetos
     //asignar posiciones
@@ -71,10 +71,13 @@ void Game::render(float d_time){
     //pacman->interpolate(d_time, mapa);
     window.draw(pacman->getSprite());
     window.draw(pacman->getText());
+    window.draw(pacman->getTextVidas());
     window.draw(pacman->getPuntos());
+    window.draw(pacman->getVidas());
     //dibujar mapa
     mapa->printMap(window);
     //dibujar fantasmas
+    window.draw(fantasma1->getSprite());
     
     window.display();
 }

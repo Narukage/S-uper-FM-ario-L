@@ -18,9 +18,9 @@ private:
     Pacman *pacman;
     Map *mapa;
     CollisionManager* collision;
-    /*Ghost *fantasma1;
+    Ghost *fantasma1;
     Ghost *fantasma2;
-    Ghost *fantasma3;*/
+    Ghost *fantasma3;
     
     bool isPlay = true;
     
