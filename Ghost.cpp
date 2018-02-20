@@ -27,7 +27,7 @@ void Ghost::updatePos(Map* mapa){
     
     //std::cout << "choque" << choque << "\n";
     if(mapa->intersecta(columna, fila)){ //si se encuentra en una interseccion
-        int ran = (rand() % 4)+1; //num aleatorio entre 1 y 4
+        int ran = (rand() % 4)+1; //num aleatorio entre 1 y 4 (GENERAR NUMERO REAL WTF)
         //std::cout << "num random: " << ran << "\n";
 
         if(ran==1){ //arriba

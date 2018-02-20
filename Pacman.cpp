@@ -222,8 +222,18 @@ void Pacman::resume(){
 
 void Pacman::kill(){
     alive = false;
-    //animacion de morir
+    vidas--;
+    if(vidas==0){
     //estado del juego a derrota
+    //fin del juego
+    }
+    //animacion de morir
+    misprite.setPosition(100,50); //recolocacion de pacman en su posicion inicial
+    movement.x = 0.f;
+    movement.y = 0.f;
+    fila = 1;
+    columna = 1;
+    alive = true;
 }
 
 bool Pacman::isAlive(){
