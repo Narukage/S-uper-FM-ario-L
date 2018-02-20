@@ -1,7 +1,4 @@
-#ifndef MAP_H
-#define MAP_H
-#endif /* MAP_H */
-
+#pragma once
 #define WIDTH 10
 #define HEIGHT 10
 #define SIZE 12
@@ -16,6 +13,7 @@ class Map{
            //int **mapa = new int* [SIZE];
            sf::Texture textura;
            sf::CircleShape coco;
+           sf::CircleShape interseccion;
            sf::Sprite sprite;
             int map[11][12] = {
                        {1,1,1,1,1,1,1,1,2,1,1,1}, //1 pared
@@ -31,6 +29,20 @@ class Map{
                        {1,1,1,1,1,1,1,1,2,1,1,1}
 
                    };
+            
+            int intersect[11][12] = {
+                       {0,0,0,0,0,0,0,0,0,0,0,0}, //1 interseccion
+                       {0,1,0,0,1,0,0,0,0,0,0,0}, //0 no interseccion
+                       {0,0,0,0,0,0,0,0,0,0,0,0},
+                       {0,0,1,0,0,0,1,0,1,0,0,0},
+                       {0,0,0,0,0,0,0,0,0,0,0,0},
+                       {0,1,1,0,1,0,0,0,1,0,1,0},
+                       {0,0,0,0,0,0,0,0,0,0,0,0},
+                       {0,0,1,0,0,0,1,0,1,0,0,0},
+                       {0,0,0,0,0,0,0,0,0,0,0,0},
+                       {0,1,0,0,1,0,0,0,0,0,0,0},
+                       {0,0,0,0,0,0,0,0,0,0,0,0}
+            };
         
             int cocos;
             sf::Sprite pared;
@@ -41,6 +53,7 @@ class Map{
         ~Map();
         void printMap(sf::RenderWindow& window);
         bool ocupada(int posx, int posy);
+        bool intersecta(int posx, int posy);
         bool hayCoco(int posx, int posy);
         
         const sf::Sprite &getSprite() const;

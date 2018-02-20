@@ -9,7 +9,7 @@
             <url>Map.cpp</url>
             <bookmark id="1">
                 <name/>
-                <line>40</line>
+                <line>47</line>
                 <key/>
             </bookmark>
         </file>
@@ -19,9 +19,8 @@
             <file>file:/home/naru/NetBeansProjects/Pacman/CollisionManager.h</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Game.h</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Map.h</file>
-            <file>file:/home/naru/NetBeansProjects/Pacman/Pacman.cpp</file>
+            <file>file:/home/naru/NetBeansProjects/Pacman/Ghost.h</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Pacman.h</file>
-            <file>file:/home/naru/NetBeansProjects/Pacman/CollisionManager.cpp</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Map.cpp</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Ghost.cpp</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Game.cpp</file>

@@ -1,7 +1,4 @@
-#ifndef PACMAN_H
-#define PACMAN_H
-#endif /* PACMAN_H */
-
+#pragma once
 #include <iostream>
 #include <sstream>
 #include <SFML/Graphics.hpp>

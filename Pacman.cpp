@@ -110,7 +110,6 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
         if(mapa->hayCoco(columna,fila)){
             score++;
-            std::cout << "score: " << score << "\n";
         }
     }
     
@@ -127,7 +126,6 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
     if(mapa->hayCoco(columna,fila)){
         score++;
-        std::cout << "score: " << score << "\n";
         }
     }
     
@@ -144,7 +142,6 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
         if(mapa->hayCoco(columna,fila)){
             score++;
-            std::cout << "score: " << score << "\n";
         }
     }
     
@@ -162,13 +159,10 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
         if(mapa->hayCoco(columna,fila)){
             score++;
-            std::cout << "score: " << score << "\n";
         }
     }
     
     if(presionado!=0){
-        std::cout << "movement x: " << movement.x << "\n";
-        std::cout << "movement y: " << movement.y << "\n";
         misprite.move(movement);
     }
     movement.x = 0.f;
@@ -227,7 +221,9 @@ void Pacman::resume(){
 }
 
 void Pacman::kill(){
-    
+    alive = false;
+    //animacion de morir
+    //estado del juego a derrota
 }
 
 bool Pacman::isAlive(){

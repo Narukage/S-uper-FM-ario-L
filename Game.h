@@ -1,11 +1,9 @@
-
-#ifndef GAME_H
-#define GAME_H
-#endif /* GAME_H */
+#pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Pacman.h"
 #include "Ghost.h"
+#include "Map.h"
 
 
 
@@ -23,6 +21,7 @@ private:
     Ghost *fantasma3;
     
     bool isPlay = true;
+    int cont = 0;
     
     enum Presionado{
         none = 0,

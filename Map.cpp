@@ -33,21 +33,38 @@ void Map::printMap(sf::RenderWindow& window){
                 coco.setPosition((i*50)+50,(j*50));
                 window.draw(coco);
             }
+            
+            if(intersect[i][j]==1){ //intersecciones
+                interseccion.setFillColor(sf::Color::Red);
+                interseccion.setRadius(8);
+                interseccion.setOrigin(-15,-15);
+                interseccion.setPosition((i*50)+50,(j*50));
+                window.draw(interseccion);
+            }
         }
     }
 }
 
 bool Map::ocupada(int posx, int posy){
-    /*int mx = posx/50;
-    int my = posy/50;*/
     
-    std::cout << "posx = " << posx << "\n";
-    std::cout << "posy = " << posy << "\n";
-    
-    /*std::cout << "mx = " << mx << "\n";
-    std::cout << "my = " << my << "\n";*/
+    /*std::cout << "posx ocupada = " << posx << "\n";
+    std::cout << "posy ocupada = " << posy << "\n";*/
     
    if (map[posx][posy]==1){
+        return true;
+    }else{
+       return false;
+    }
+}
+
+bool Map::intersecta(int posx, int posy){
+    
+    /*std::cout << "posx = " << posx << "\n";
+    std::cout << "posy = " << posy << "\n";
+    
+    std::cout << "intersect[posx][posy]: " << intersect[posx][posy] << "\n";*/
+    
+    if (intersect[posx][posy]==1){
         return true;
     }else{
        return false;
@@ -58,7 +75,6 @@ bool Map::hayCoco(int posx, int posy){
     if(map[posx][posy]==2){
         cocos--;
         map[posx][posy]=0;
-        std::cout << "cocos: " << cocos << "\n";
         return true;
     }else{
         return false;

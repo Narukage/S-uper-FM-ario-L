@@ -8,6 +8,8 @@ Game::Game(): window(sf::VideoMode(800,600),"Ventana de SFML"){
 Game::~Game(){
     delete pacman;
     delete mapa;
+    delete collision;
+    //delete fantasma1;
 }
 
 void Game::inicializar(){
@@ -62,6 +64,15 @@ void Game::update(){
     
     pacman->updatePos(presionado, mapa);  //Actualizamos posición personaje
     presionado = none;                              //Estado de movimiento = 0
+    if(cont==3){ //preguntar por que core dumped por hacer un contador
+        fantasma1->updatePos(mapa);
+        cont = 0;
+    }
+    cont ++;
+    if(collision->checkSpriteCollision(pacman->getSprite(),fantasma1->getSprite())&&pacman->isAlive()){
+        pacman->kill();
+        std::cout << "Te han matao" << "\n";
+    }
 }
 
 void Game::render(float d_time){
