@@ -9,6 +9,7 @@
       <itemPath>Ghost.h</itemPath>
       <itemPath>Map.h</itemPath>
       <itemPath>Pacman.h</itemPath>
+      <itemPath>StateManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -59,6 +60,7 @@
             <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-window.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-graphics.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-system.so</linkerLibFileItem>
+            <linkerLibLibItem>sfml-audio</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -83,6 +85,8 @@
       <item path="Pacman.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StateManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StateManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -128,6 +132,8 @@
       <item path="Pacman.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StateManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StateManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

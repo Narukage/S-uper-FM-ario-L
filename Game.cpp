@@ -21,12 +21,20 @@ void Game::inicializar(){
     //crear mapa
     mapa = new Map();
     collision = new CollisionManager();
+    //state = new StateManager();
     //crear fantasmas
     fantasma1 = new Ghost();
     /*fantasma2 = new Ghost();
     fantasma3 = new Ghost();*/
     //crear objetos
-    //asignar posiciones
+    
+    
+    if (!buffer.loadFromFile("/home/naru/Escritorio/pacman_beginning.wav")){
+        std::cout << "No pudo abrir el archivo de audio" << "\n";
+    }
+    
+    sound.setVolume(70);
+    sound.setBuffer(buffer);
     
 }
 
@@ -61,10 +69,13 @@ void Game::eventos(){
 }
 
 void Game::update(){
-    
-    pacman->updatePos(presionado, mapa);  //Actualizamos posición personaje
-    presionado = none;                              //Estado de movimiento = 0
-    if(cont==3){ //preguntar por que core dumped por hacer un contador
+    if(cont2==1){
+        pacman->updatePos(presionado, mapa);  //Actualizamos posición personaje
+        //presionado = none;                              //Estado de movimiento = 0
+        cont2=0;
+    }
+    cont2++;
+    if(cont==2){ //preguntar por que core dumped por hacer un contador
         fantasma1->updatePos(mapa);
         cont = 0;
     }
@@ -102,16 +113,17 @@ void Game::run(){
     
     inicializar();
     float s = 0.f;
-    while(isPlay){
-        if(s >= 1.f/15.f){
-            eventos();
-            update();
-            s = 0.f;
+    sound.play();
+        while(isPlay){
+            if(s >= 1.f/15.f){
+                eventos();
+                update();
+                s = 0.f;
+            }
+
+            render(1.f/120.f);
+
+            s+=1.f/120.f;
         }
-        
-        render(1.f/120.f);
-        
-        s+=1.f/120.f;
+        cleared();
     }
-    cleared();
-}

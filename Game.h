@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Pacman.h"
 #include "Ghost.h"
 #include "Map.h"
@@ -11,17 +12,23 @@ class Game{
     
 private:
     sf::RenderWindow window;
-    sf::Event evento;
+    sf::Event evento;      
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
+    //sf::Music music;
+    int cont2 = 0;
+    
     
     Pacman *pacman;
     Map *mapa;
     CollisionManager* collision;
+    //StateManager* state;
     Ghost *fantasma1;
     Ghost *fantasma2;
     Ghost *fantasma3;
     
     bool isPlay = true;
-    int cont = 0;
+    float cont = 0;
     
     enum Presionado{
         none = 0,

@@ -41,6 +41,27 @@ Pacman::Pacman(){
     text2.setColor(sf::Color::Red);
     text2.setString("Lifes:");
     
+     if (!buffer.loadFromFile("/home/naru/Escritorio/jrdot1.wav")){
+        std::cout << "No pudo abrir el archivo de audio" << "\n";
+    }
+    
+    if (!buffer2.loadFromFile("/home/naru/Escritorio/pacman_death.wav")){
+        std::cout << "No pudo abrir el archivo de audio" << "\n";
+    }
+    
+    if (!buffer3.loadFromFile("/home/naru/Escritorio/siren.wav")){
+        std::cout << "No pudo abrir el archivo de audio" << "\n";
+    }
+    
+    sound3.setVolume(70);
+    sound3.setBuffer(buffer3);
+    
+    sound.setVolume(70);
+    sound.setBuffer(buffer);
+    
+    sound2.setVolume(70);
+    sound2.setBuffer(buffer2);
+    
     
 
 }
@@ -96,11 +117,26 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     
     /*dir_move.x=0.f;
     dir_move.y=0.f;*/
+    std::cout << "cont: " << cont << "\n";
+    if(cont == 3){
+      sound3.play();
+      cont = 0;
+    }
+    cont++;
+    
+    std::cout << "fila" << columna << "\n";
+    std::cout << "columna" << fila << "\n";
          
     if(presionado==1){ //A
          /*dir_move.x=-1.f;
          dir_move.y=0.f;*/
         columna--;
+        if(columna==-1 && fila==8){
+            columna=10;
+            fila=8;
+            misprite.setPosition(600,400);
+            std::cout << "aqui en la esquina" << "\n";
+        }
         if(mapa->ocupada(columna,fila)){
             columna++;
             movement.x = 0.f;
@@ -110,13 +146,19 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
         if(mapa->hayCoco(columna,fila)){
             score++;
+            sound.play();
         }
     }
     
     if(presionado==2){ //D
          /*dir_move.x=1.f;
          dir_move.y=0.f;*/
-        columna++;
+        columna++;        
+        if(columna==11 && fila==8){
+            columna=0;
+            fila=8;
+            misprite.setPosition(0,400);
+        }
         if(mapa->ocupada(columna,fila)){
             columna--;
             movement.x = 0.f;
@@ -126,6 +168,7 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
     if(mapa->hayCoco(columna,fila)){
         score++;
+        sound.play();
         }
     }
     
@@ -142,6 +185,7 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
         if(mapa->hayCoco(columna,fila)){
             score++;
+            sound.play();
         }
     }
     
@@ -159,6 +203,7 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
         }
         if(mapa->hayCoco(columna,fila)){
             score++;
+            sound.play();
         }
     }
     
@@ -223,8 +268,10 @@ void Pacman::resume(){
 void Pacman::kill(){
     alive = false;
     vidas--;
+    sound2.play();
     if(vidas==0){
     //estado del juego a derrota
+     
     //fin del juego
     }
     //animacion de morir

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "CollisionManager.h"
 #include "Map.h"
 
@@ -22,10 +23,23 @@ private:
     sf::Text text2;
     sf::Text mytext;
     sf::Text mytext2;
+    sf::SoundBuffer buffer;
+    sf::Sound sound;
+    sf::SoundBuffer buffer2;
+    sf::Sound sound2;
+    sf::SoundBuffer buffer3;
+    sf::Sound sound3;
         
     int fila;
     int columna;
     int vidas;
+    int cont = 0;
+    //Estado estado;
+    
+    enum Estado{
+        Victoria = 1,
+        Derrota = 0
+    };
     
     enum Direction{
         Left = -1,

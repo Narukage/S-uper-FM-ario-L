@@ -2,7 +2,7 @@
 
 Map::Map(){
 
-    cocos = 16;
+    cocos = 59;
     //reservar memoria para la matriz mapa
     /*for(int i=0;i<SIZE;i++){
         mapa[i] = new int [SIZE];
@@ -34,12 +34,12 @@ void Map::printMap(sf::RenderWindow& window){
                 window.draw(coco);
             }
             
-            if(intersect[i][j]==1){ //intersecciones
-                interseccion.setFillColor(sf::Color::Red);
-                interseccion.setRadius(8);
-                interseccion.setOrigin(-15,-15);
-                interseccion.setPosition((i*50)+50,(j*50));
-                window.draw(interseccion);
+            if(map[i][j]==3){ //intersecciones
+                coco.setFillColor(sf::Color::White);
+                coco.setRadius(10);
+                coco.setOrigin(-15,-15);
+                coco.setPosition((i*50)+50,(j*50));
+                window.draw(coco);
             }
         }
     }
@@ -72,7 +72,7 @@ bool Map::intersecta(int posx, int posy){
 }
 
 bool Map::hayCoco(int posx, int posy){
-    if(map[posx][posy]==2){
+    if(map[posx][posy]==2 || map[posx][posy]==3){
         cocos--;
         map[posx][posy]=0;
         return true;
