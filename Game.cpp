@@ -9,7 +9,8 @@ Game::~Game(){
     delete pacman;
     delete mapa;
     delete collision;
-    //delete fantasma1;
+    delete fantasma1;
+    delete fantasma2;
 }
 
 void Game::inicializar(){
@@ -23,7 +24,8 @@ void Game::inicializar(){
     collision = new CollisionManager();
     //state = new StateManager();
     //crear fantasmas
-    fantasma1 = new Ghost();
+    fantasma1 = new Ghost(1);
+    fantasma2 = new Ghost(2);
     /*fantasma2 = new Ghost();
     fantasma3 = new Ghost();*/
     //crear objetos
@@ -69,6 +71,9 @@ void Game::eventos(){
 }
 
 void Game::update(){
+    if(pacman->getWin()){
+        isPlay=false;
+    }
     if(cont2==1){
         pacman->updatePos(presionado, mapa);  //Actualizamos posición personaje
         //presionado = none;                              //Estado de movimiento = 0
@@ -81,7 +86,7 @@ void Game::update(){
     }
     cont ++;
     if(collision->checkSpriteCollision(pacman->getSprite(),fantasma1->getSprite())&&pacman->isAlive()){
-        pacman->kill();
+        pacman->kill(window, isPlay);
         std::cout << "Te han matao" << "\n";
     }
 }

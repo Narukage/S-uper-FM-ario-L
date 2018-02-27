@@ -52,6 +52,7 @@ private:
     Direction direction_;
     bool paused;
     bool alive;
+    bool win = false;
     int score;
     
     
@@ -60,7 +61,7 @@ public:
     void pause(); //stop pacman animation
     void resume(); //resume pacman animation
     void restart(); //reinicia su posicion en el mapa
-    void kill();
+    void kill(sf::RenderWindow& window, bool& isPlay);
     bool isAlive();
     void updatePos(int presionado, Map* mapa); //pacman movement
     void interpolate(float d_time, Map* mapa);    //pacman render interpolation
@@ -76,5 +77,6 @@ public:
     sf::Text getPuntos();
     sf::Sprite getVidas();
     sf::Text getTextVidas(){ return text2; };
+    bool getWin(){return win; };
     
 };

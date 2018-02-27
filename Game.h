@@ -17,6 +17,7 @@ private:
     sf::Sound sound;
     //sf::Music music;
     int cont2 = 0;
+    int color; //1 - rosa //2 - azul
     
     
     Pacman *pacman;
@@ -25,7 +26,7 @@ private:
     //StateManager* state;
     Ghost *fantasma1;
     Ghost *fantasma2;
-    Ghost *fantasma3;
+    //Ghost *fantasma3;
     
     bool isPlay = true;
     float cont = 0;

@@ -117,15 +117,15 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     
     /*dir_move.x=0.f;
     dir_move.y=0.f;*/
-    std::cout << "cont: " << cont << "\n";
+    //std::cout << "cont: " << cont << "\n";
     if(cont == 3){
       sound3.play();
       cont = 0;
     }
     cont++;
     
-    std::cout << "fila" << columna << "\n";
-    std::cout << "columna" << fila << "\n";
+    /*std::cout << "fila" << columna << "\n";
+    std::cout << "columna" << fila << "\n";*/
          
     if(presionado==1){ //A
          /*dir_move.x=-1.f;
@@ -212,6 +212,10 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     }
     movement.x = 0.f;
     movement.y = 0.f;
+    
+    if(score==59){
+        win=true;
+    }
 }
 
 void Pacman::interpolate(float d_time, Map* mapa){
@@ -265,13 +269,13 @@ void Pacman::resume(){
     
 }
 
-void Pacman::kill(){
+void Pacman::kill(sf::RenderWindow& window, bool& isPlay){
     alive = false;
     vidas--;
     sound2.play();
     if(vidas==0){
     //estado del juego a derrota
-     
+     isPlay = false;
     //fin del juego
     }
     //animacion de morir

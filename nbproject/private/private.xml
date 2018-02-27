@@ -16,16 +16,13 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/naru/NetBeansProjects/Pacman/CollisionManager.h</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Game.h</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Map.h</file>
-            <file>file:/home/naru/NetBeansProjects/Pacman/Pacman.cpp</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Ghost.h</file>
-            <file>file:/home/naru/NetBeansProjects/Pacman/Pacman.h</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/main.cpp</file>
-            <file>file:/home/naru/NetBeansProjects/Pacman/Map.cpp</file>
-            <file>file:/home/naru/NetBeansProjects/Pacman/Ghost.cpp</file>
             <file>file:/home/naru/NetBeansProjects/Pacman/Game.cpp</file>
+            <file>file:/home/naru/NetBeansProjects/Pacman/Ghost.cpp</file>
+            <file>file:/home/naru/NetBeansProjects/Pacman/Map.cpp</file>
         </group>
     </open-files>
 </project-private>

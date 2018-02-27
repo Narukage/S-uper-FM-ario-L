@@ -10,16 +10,19 @@ private:
     float playerSpeed;
     sf::Vector2f movement;
     sf::Sprite misprite;
+    sf::Sprite misprite2;
     sf::Texture textura;
+    sf::Texture textura2;
     sf::Vector2f anterior;
     bool choque = false;
     bool paused;
     int fila;
     int columna;
     int cont = 0;
+    int color;
     
 public:
-    Ghost();
+    Ghost(int color);
     ~Ghost();
     void pause(); //stop ghost animation
     void resume(); //resume ghost animation
