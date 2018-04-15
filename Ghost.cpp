@@ -1,5 +1,6 @@
 #include "Ghost.h"
 
+
 Ghost::Ghost(int color){
     color = color;
     movement.x = 0.f;
@@ -12,13 +13,23 @@ Ghost::Ghost(int color){
     anterior.y = 1.f;
     
     if(color==1){
-        if(!textura.loadFromFile("/home/naru/Escritorio/ghostrojo.png")){
+        if(!textura.loadFromFile("assets/animacionghost.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }
+        
+        if(!texturaghost.loadFromFile("assets/ghost.png")){
                std::cout<<"Textura no aplicada"<<std::endl;
             }
 
-        misprite.setTexture(textura);
+        misprite.setTexture(texturaghost);
         misprite.setPosition(300,300);
-        misprite.setScale(sf::Vector2f(0.3,0.3));
+        misprite.setScale(sf::Vector2f(3,3));
+        
+    textureSize = textura.getSize();
+    textureSize.x /= 2;
+    textureSize.y /= 4;
+    
+    animation = new Animation(&textura, sf::Vector2u(2,4), 0.2f);
     }
     
     /*if(color==2){
@@ -32,8 +43,10 @@ Ghost::Ghost(int color){
     }*/
 }
 //aqui va la IA de los fantasmas
-void Ghost::updatePos(Map* mapa){
+void Ghost::updatePos(Map* mapa, float deltaTime){
 
+    misprite.setTexture(textura);
+    
     /*std::cout << "fila: " << columna << "\n";
     std::cout << "columna: " << fila << "\n";*/
     choque = false;
@@ -45,6 +58,8 @@ void Ghost::updatePos(Map* mapa){
         int ran = (rand() % 4)+1; //num aleatorio entre 1 y 4 (GENERAR NUMERO REAL WTF)
 
         if(ran==1){ //arriba
+            animation->Update(0, deltaTime);
+            misprite.setTextureRect(animation->uvRect);
             fila--;
             if(mapa->ocupada(columna,fila)){
                 fila++;
@@ -59,6 +74,8 @@ void Ghost::updatePos(Map* mapa){
         }else 
 
         if(ran==2){ //abajo
+            animation->Update(1, deltaTime);
+            misprite.setTextureRect(animation->uvRect);
                 fila++;
             if(mapa->ocupada(columna,fila)){
                 fila--;
@@ -73,6 +90,8 @@ void Ghost::updatePos(Map* mapa){
         }else
 
         if(ran==3){ //izquierda
+            animation->Update(2, deltaTime);
+            misprite.setTextureRect(animation->uvRect);
                 columna--;
             if(mapa->ocupada(columna,fila)){
                 columna++;
@@ -87,6 +106,8 @@ void Ghost::updatePos(Map* mapa){
         }else 
 
         if(ran==4){ //derecha
+            animation->Update(3, deltaTime);
+            misprite.setTextureRect(animation->uvRect);
                 columna++;
             if(mapa->ocupada(columna,fila)){
                 columna--;
@@ -232,7 +253,7 @@ Ghost::restart(){
 Ghost::resume(){
     
 }
-
+*/
 Ghost::~Ghost(){
     
-}*/
+}

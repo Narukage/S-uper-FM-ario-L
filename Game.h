@@ -5,6 +5,7 @@
 #include "Pacman.h"
 #include "Ghost.h"
 #include "Map.h"
+#include "Animation.h"
 
 
 
@@ -12,15 +13,27 @@ class Game{
     
 private:
     sf::RenderWindow window;
-    sf::Event evento;      
+    sf::Event evento;
+    sf::Sprite mensaje;
+    sf::Sprite ready;
+    sf::Texture texturagameover;
+    sf::Texture texturaready;
+    sf::Vector2u textureSize2;
+    sf::Texture texturamorir;
     sf::SoundBuffer buffer;
     sf::Sound sound;
     //sf::Music music;
     int cont2 = 0;
+    int contready=0;
     int color; //1 - rosa //2 - azul
     
     
+    float deltaTime = 0.0f;
+    sf::Clock clock;
+    float control;
+    
     Pacman *pacman;
+    Animation* animation;
     Map *mapa;
     CollisionManager* collision;
     //StateManager* state;
@@ -30,6 +43,7 @@ private:
     
     bool isPlay = true;
     float cont = 0;
+    bool dead=false;
     
     enum Presionado{
         none = 0,

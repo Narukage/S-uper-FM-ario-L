@@ -1,4 +1,5 @@
 #include "Pacman.h"
+#include "Animation.h"
 
 //inicializar variables y aplicar textura en el constructor??
 Pacman::Pacman(){
@@ -17,17 +18,15 @@ Pacman::Pacman(){
     fila = 1;
     columna = 1;
     vidas = 3;
+    control=0;
 
-    if(!textura.loadFromFile("/home/naru/Escritorio/Pac-Man_sprite.png")){
+    if(!texturapacman.loadFromFile("assets/pacman.png")){
            std::cout<<"Textura no aplicada"<<std::endl;
         }
 
-    misprite.setTexture(textura);
-    misprite.setPosition(100,50);
-    misprite.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.3,0.3));
     
     //texto de score
-    if(!font.loadFromFile("/usr/share/fonts/truetype/freefont/FreeMono.ttf")){
+    if(!font.loadFromFile("fonts/FreeMono.ttf")){
         std::cout << "Fuente no aplicada" <<std::endl;
     }
     
@@ -63,6 +62,22 @@ Pacman::Pacman(){
     sound2.setBuffer(buffer2);
     
     
+     if(!texturaanimacion.loadFromFile("assets/animacionpacman.png")){
+           std::cout<<"Textura no aplicada"<<std::endl;
+        }
+    
+    player.setTexture(texturapacman);
+    player.setPosition(100,50);
+    player.setScale(0.2,0.2);
+    
+    textureSize = texturaanimacion.getSize();
+    textureSize.x /= 3;
+    textureSize.y /= 4;
+    
+    
+    
+    animation = new Animation(&texturaanimacion, sf::Vector2u(3.5,4), 0.1f);
+    
 
 }
 
@@ -79,32 +94,29 @@ sf::Text Pacman::getPuntos(){
 
 sf::Sprite Pacman::getVidas(){
     if(vidas==3){
-        if(!textura.loadFromFile("/home/naru/Escritorio/3vidas.png")){
+        if(!textura.loadFromFile("assets/3vidas.png")){
            std::cout<<"Textura no aplicada"<<std::endl;
         }
         
     vida.setTexture(textura);
     vida.setPosition(645,120);
-    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.2,0.2));
+    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/2.5,2.5));
     
     }
     
     if(vidas==2){
-        if(!textura.loadFromFile("/home/naru/Escritorio/2vidas.png")){
+        if(!textura.loadFromFile("assets/2vidas.png")){
            std::cout<<"Textura no aplicada"<<std::endl;
         }
         
     vida.setTexture(textura);
     vida.setPosition(645,120);
-    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.2,0.2));
+    vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/2.5,2.5));
     }
     
     if(vidas==1){
-        if(!textura.loadFromFile("/home/naru/Escritorio/Pac-Man_sprite.png")){
-           std::cout<<"Textura no aplicada"<<std::endl;
-        }
         
-    vida.setTexture(textura);
+    vida.setTexture(texturapacman);
     vida.setPosition(645,120);
     vida.setScale(sf::Vector2f(/*50.f/217.f,50.f/232.f*/0.2,0.2));
     }
@@ -113,11 +125,18 @@ sf::Sprite Pacman::getVidas(){
     
 }
 
-void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque cada posicion de la matriz son 50x50 pixeles
+void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico por 50 porque cada posicion de la matriz son 50x50 pixeles
+    
+    
+    if(presionado!=0){
+        player.setTexture(texturaanimacion);
+        player.setScale(3,3);
+    }
     
     /*dir_move.x=0.f;
     dir_move.y=0.f;*/
     //std::cout << "cont: " << cont << "\n";
+    
     if(cont == 3){
       sound3.play();
       cont = 0;
@@ -130,11 +149,13 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     if(presionado==1){ //A
          /*dir_move.x=-1.f;
          dir_move.y=0.f;*/
+        animation->Update(0, deltaTime);
+        player.setTextureRect(animation->uvRect);
         columna--;
         if(columna==-1 && fila==8){
             columna=10;
             fila=8;
-            misprite.setPosition(600,400);
+            player.setPosition(600,400);
             std::cout << "aqui en la esquina" << "\n";
         }
         if(mapa->ocupada(columna,fila)){
@@ -151,13 +172,15 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     }
     
     if(presionado==2){ //D
+        animation->Update(1, deltaTime);
+        player.setTextureRect(animation->uvRect);
          /*dir_move.x=1.f;
          dir_move.y=0.f;*/
         columna++;        
         if(columna==11 && fila==8){
             columna=0;
             fila=8;
-            misprite.setPosition(0,400);
+            player.setPosition(0,400);
         }
         if(mapa->ocupada(columna,fila)){
             columna--;
@@ -173,6 +196,8 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     }
     
     if(presionado==3){ //S
+        animation->Update(3, deltaTime);
+        player.setTextureRect(animation->uvRect);
          /*dir_move.x=0.f;
          dir_move.y=1.f;*/
         fila++;
@@ -191,6 +216,8 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     
     
     if(presionado==4){ //W
+        animation->Update(2, deltaTime);
+        player.setTextureRect(animation->uvRect);
          /*dir_move.x=0.f;
          dir_move.y=-1.f;*/
         fila--;
@@ -208,7 +235,7 @@ void Pacman::updatePos(int presionado, Map* mapa){ //multiplico por 50 porque ca
     }
     
     if(presionado!=0){
-        misprite.move(movement);
+        player.move(movement);
     }
     movement.x = 0.f;
     movement.y = 0.f;
@@ -244,7 +271,7 @@ void Pacman::interpolate(float d_time, Map* mapa){
 }
 
 sf::Sprite Pacman::getSprite(){
-    return misprite;
+    return player;
 }
 
 float Pacman::getVelocity(){
@@ -262,29 +289,25 @@ void Pacman::pause(){
 }
 
 void Pacman::restart(){
-    
+    if(vidas!=0){
+        player.setPosition(100,50); //recolocacion de pacman en su posicion inicial
+        movement.x = 0.f;
+        movement.y = 0.f;
+        fila = 1;
+        columna = 1;
+        alive = true;
+    }
 }
 
 void Pacman::resume(){
     
 }
 
-void Pacman::kill(sf::RenderWindow& window, bool& isPlay){
+void Pacman::kill(sf::RenderWindow& window, bool& isPlay, float deltaTime){
     alive = false;
     vidas--;
     sound2.play();
-    if(vidas==0){
-    //estado del juego a derrota
-     isPlay = false;
     //fin del juego
-    }
-    //animacion de morir
-    misprite.setPosition(100,50); //recolocacion de pacman en su posicion inicial
-    movement.x = 0.f;
-    movement.y = 0.f;
-    fila = 1;
-    columna = 1;
-    alive = true;
 }
 
 bool Pacman::isAlive(){

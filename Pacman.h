@@ -5,6 +5,7 @@
 #include <SFML/Audio.hpp>
 #include "CollisionManager.h"
 #include "Map.h"
+#include "Animation.h"
 
 
 
@@ -16,8 +17,14 @@ private:
     sf::Vector2f dir_move;
     sf::Vector2f movement;
     sf::Sprite misprite;
+    sf::Sprite player;
     sf::Sprite vida;
+    sf::Vector2u textureSize;
+    
+    sf::Vector2u textureSize3;
     sf::Texture textura;
+    
+    sf::Texture texturaanimacion;
     sf::Font font;
     sf::Text text;
     sf::Text text2;
@@ -29,11 +36,16 @@ private:
     sf::Sound sound2;
     sf::SoundBuffer buffer3;
     sf::Sound sound3;
+    sf::Texture texturapacman;
+    
+    Animation* animation;
+    Animation* animation2;
         
     int fila;
     int columna;
     int vidas;
     int cont = 0;
+    float control;
     //Estado estado;
     
     enum Estado{
@@ -61,9 +73,9 @@ public:
     void pause(); //stop pacman animation
     void resume(); //resume pacman animation
     void restart(); //reinicia su posicion en el mapa
-    void kill(sf::RenderWindow& window, bool& isPlay);
+    void kill(sf::RenderWindow& window, bool& isPlay, float deltaTime);
     bool isAlive();
-    void updatePos(int presionado, Map* mapa); //pacman movement
+    void updatePos(int presionado, Map* mapa, float deltaTime); //pacman movement
     void interpolate(float d_time, Map* mapa);    //pacman render interpolation
     float getVelocity();
     sf::Vector2f getCurrentPosition();
@@ -76,6 +88,7 @@ public:
     sf::Text getText(){ return text; };
     sf::Text getPuntos();
     sf::Sprite getVidas();
+    int getVidass() { return vidas; };
     sf::Text getTextVidas(){ return text2; };
     bool getWin(){return win; };
     

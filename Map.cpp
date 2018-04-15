@@ -6,15 +6,15 @@ Map::Map(){
     //reservar memoria para la matriz mapa
     /*for(int i=0;i<SIZE;i++){
         mapa[i] = new int [SIZE];
-    }*/    
-   
+    }*/
+    if(!textura.loadFromFile("assets/cubo.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }    
 }
 
 
 void Map::printMap(sf::RenderWindow& window){
-    if(!textura.loadFromFile("/home/naru/Escritorio/150px-SokobanWallDepictionDrawing.png")){
-           std::cout<<"Textura no aplicada"<<std::endl;
-        }
+    
     
     
     for(int i=0;i<11;i++){

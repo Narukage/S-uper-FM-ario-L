@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "Map.h"
+#include "Animation.h"
 
 class Ghost{
 private:
@@ -12,8 +13,10 @@ private:
     sf::Sprite misprite;
     sf::Sprite misprite2;
     sf::Texture textura;
-    sf::Texture textura2;
+    sf::Texture texturaghost;
     sf::Vector2f anterior;
+    sf::Vector2u textureSize;
+    Animation* animation;
     bool choque = false;
     bool paused;
     int fila;
@@ -29,7 +32,7 @@ public:
     void restart(); //reinicia su posicion en el mapa
     void kill();
     bool isAlive();
-    void updatePos(Map* mapa); //ghost movement
+    void updatePos(Map* mapa, float deltaTime); //ghost movement
     //void interpolate(float d_time);    //ghost render interpolation
     sf::Vector2f getCurrentPosition();
     sf::Sprite getSprite();
