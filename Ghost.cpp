@@ -7,16 +7,16 @@ Ghost::Ghost(int color){
     movement.y = 0.f;
     paused = false;
     alive = true;
-    fila = 6;
-    columna = 5;
     anterior.x = 1.f;
     anterior.y = 1.f;
     
     if(color==1){
+        fila = 6;
+        columna = 5;
         if(!textura.loadFromFile("assets/animacionghost.png")){
                std::cout<<"Textura no aplicada"<<std::endl;
             }
-        
+ 
         if(!texturaghost.loadFromFile("assets/ghost.png")){
                std::cout<<"Textura no aplicada"<<std::endl;
             }
@@ -24,13 +24,68 @@ Ghost::Ghost(int color){
         misprite.setTexture(texturaghost);
         misprite.setPosition(300,300);
         misprite.setScale(sf::Vector2f(3,3));
-        
-    textureSize = textura.getSize();
-    textureSize.x /= 2;
-    textureSize.y /= 4;
+     
+        textureSize = textura.getSize();
+        textureSize.x /= 2;
+        textureSize.y /= 4;
     
     animation = new Animation(&textura, sf::Vector2u(2,4), 0.2f);
     }
+    
+    if(color==2){
+        fila = 6;
+        columna = 5;
+        if(!textura.loadFromFile("assets/animacionghost2.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }
+        
+        if(!texturaghost.loadFromFile("assets/ghost2.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }
+        
+        misprite.setTexture(texturaghost);
+        misprite.setPosition(300,300);
+        misprite.setScale(sf::Vector2f(3,3));
+        
+        textureSize = textura.getSize();
+        textureSize.x /= 2;
+        textureSize.y /= 4;
+        
+        animation = new Animation(&textura, sf::Vector2u(2,4), 0.2f);
+    }
+    
+    if(color==3){
+        fila = 6;
+        columna = 5;
+        if(!textura.loadFromFile("assets/animacionghost3.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }
+        
+        if(!texturaghost.loadFromFile("assets/ghost3.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }
+        
+        misprite.setTexture(texturaghost);
+        misprite.setPosition(300,300);
+        misprite.setScale(sf::Vector2f(3,3));
+        
+        textureSize = textura.getSize();
+        textureSize.x /= 2;
+        textureSize.y /= 4;
+        
+        animation = new Animation(&textura, sf::Vector2u(2,4), 0.2f);
+        
+    }
+    
+    if(!texturacaza.loadFromFile("assets/run.png")){
+               std::cout<<"Textura no aplicada"<<std::endl;
+            }
+    
+    textureSize2 = texturacaza.getSize();
+    textureSize2.x /= 2;
+    textureSize2.y /= 1;
+    
+    animation2 = new Animation(&texturacaza, sf::Vector2u(2,1), 0.2f);
     
     /*if(color==2){
         if(!textura2.loadFromFile("/home/naru/Escritorio/ghost.png")){
@@ -43,9 +98,13 @@ Ghost::Ghost(int color){
     }*/
 }
 //aqui va la IA de los fantasmas
-void Ghost::updatePos(Map* mapa, float deltaTime){
+void Ghost::updatePos(Map* mapa, float deltaTime, bool estadocaza){
 
-    misprite.setTexture(textura);
+    if(!estadocaza){
+        misprite.setTexture(textura);
+    }else{
+        misprite.setTexture(texturacaza);
+    }
     
     /*std::cout << "fila: " << columna << "\n";
     std::cout << "columna: " << fila << "\n";*/
@@ -54,12 +113,18 @@ void Ghost::updatePos(Map* mapa, float deltaTime){
     //std::cout << "choque" << choque << "\n";
     if(mapa->intersecta(columna, fila)){ //si se encuentra en una interseccion
         //reinisiar el taiming a tzero
+        if(color==1)
         srand(time(NULL));
         int ran = (rand() % 4)+1; //num aleatorio entre 1 y 4 (GENERAR NUMERO REAL WTF)
 
         if(ran==1){ //arriba
-            animation->Update(0, deltaTime);
-            misprite.setTextureRect(animation->uvRect);
+            if(!estadocaza){
+                animation->Update(0, deltaTime);
+                misprite.setTextureRect(animation->uvRect);
+            }else{
+                animation2->Update(0, deltaTime);
+                misprite.setTextureRect(animation2->uvRect); 
+            }
             fila--;
             if(mapa->ocupada(columna,fila)){
                 fila++;
@@ -74,8 +139,13 @@ void Ghost::updatePos(Map* mapa, float deltaTime){
         }else 
 
         if(ran==2){ //abajo
-            animation->Update(1, deltaTime);
-            misprite.setTextureRect(animation->uvRect);
+            if(!estadocaza){
+                animation->Update(1, deltaTime);
+                misprite.setTextureRect(animation->uvRect);
+            }else{
+                animation2->Update(0, deltaTime);
+                misprite.setTextureRect(animation2->uvRect); 
+            }
                 fila++;
             if(mapa->ocupada(columna,fila)){
                 fila--;
@@ -90,8 +160,13 @@ void Ghost::updatePos(Map* mapa, float deltaTime){
         }else
 
         if(ran==3){ //izquierda
-            animation->Update(2, deltaTime);
-            misprite.setTextureRect(animation->uvRect);
+            if(!estadocaza){
+                animation->Update(2, deltaTime);
+                misprite.setTextureRect(animation->uvRect);
+            }else{
+                animation2->Update(0, deltaTime);
+                misprite.setTextureRect(animation2->uvRect); 
+            }
                 columna--;
             if(mapa->ocupada(columna,fila)){
                 columna++;
@@ -106,8 +181,13 @@ void Ghost::updatePos(Map* mapa, float deltaTime){
         }else 
 
         if(ran==4){ //derecha
-            animation->Update(3, deltaTime);
-            misprite.setTextureRect(animation->uvRect);
+            if(!estadocaza){
+                animation->Update(3, deltaTime);
+                misprite.setTextureRect(animation->uvRect);
+            }else{
+                animation2->Update(0, deltaTime);
+                misprite.setTextureRect(animation2->uvRect); 
+            }
                 columna++;
             if(mapa->ocupada(columna,fila)){
                 columna--;
@@ -238,11 +318,13 @@ bool Ghost::isAlive(){
     return alive;
 }
 
-/*Ghost::kill(){
-    
+void Ghost::kill(int color){
+    if(this->color==color){
+        alive=false;
+    }
 }
 
-Ghost::pause(){
+/*Ghost::pause(){
     
 }
 
@@ -255,5 +337,6 @@ Ghost::resume(){
 }
 */
 Ghost::~Ghost(){
-    
+    delete animation;
+    delete animation2;
 }

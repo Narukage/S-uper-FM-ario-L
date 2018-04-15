@@ -32,11 +32,13 @@ private:
     sf::Text mytext2;
     sf::SoundBuffer buffer;
     sf::Sound sound;
-    sf::SoundBuffer buffer2;
-    sf::Sound sound2;
     sf::SoundBuffer buffer3;
     sf::Sound sound3;
+    sf::SoundBuffer buffer4;
+    sf::Sound sound4;
     sf::Texture texturapacman;
+    
+    sf::Clock clock;
     
     Animation* animation;
     Animation* animation2;
@@ -46,6 +48,7 @@ private:
     int vidas;
     int cont = 0;
     float control;
+    bool estadocaza=false;
     //Estado estado;
     
     enum Estado{
@@ -73,8 +76,10 @@ public:
     void pause(); //stop pacman animation
     void resume(); //resume pacman animation
     void restart(); //reinicia su posicion en el mapa
-    void kill(sf::RenderWindow& window, bool& isPlay, float deltaTime);
+    void kill();
     bool isAlive();
+    bool getEstadoCaza(){ return estadocaza; };
+    void setEstadoCaza(bool estado);
     void updatePos(int presionado, Map* mapa, float deltaTime); //pacman movement
     void interpolate(float d_time, Map* mapa);    //pacman render interpolation
     float getVelocity();

@@ -72,7 +72,17 @@ bool Map::intersecta(int posx, int posy){
 }
 
 bool Map::hayCoco(int posx, int posy){
-    if(map[posx][posy]==2 || map[posx][posy]==3){
+    if(map[posx][posy]==2){
+        cocos--;
+        map[posx][posy]=0;
+        return true;
+    }else{
+        return false;
+    }
+}
+
+bool Map::hayCocoGordo(int posx, int posy){
+    if(map[posx][posy]==3){
         cocos--;
         map[posx][posy]=0;
         return true;

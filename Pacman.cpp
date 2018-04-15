@@ -40,17 +40,20 @@ Pacman::Pacman(){
     text2.setColor(sf::Color::Red);
     text2.setString("Lifes:");
     
-     if (!buffer.loadFromFile("/home/naru/Escritorio/jrdot1.wav")){
+     if (!buffer.loadFromFile("music/dot.wav")){
+        std::cout << "No pudo abrir el archivo de audio" << "\n";
+    }
+  
+    if (!buffer3.loadFromFile("music/siren.wav")){
         std::cout << "No pudo abrir el archivo de audio" << "\n";
     }
     
-    if (!buffer2.loadFromFile("/home/naru/Escritorio/pacman_death.wav")){
+    if (!buffer4.loadFromFile("music/energizer.wav")){
         std::cout << "No pudo abrir el archivo de audio" << "\n";
     }
     
-    if (!buffer3.loadFromFile("/home/naru/Escritorio/siren.wav")){
-        std::cout << "No pudo abrir el archivo de audio" << "\n";
-    }
+    sound4.setVolume(70);
+    sound4.setBuffer(buffer4);
     
     sound3.setVolume(70);
     sound3.setBuffer(buffer3);
@@ -58,8 +61,7 @@ Pacman::Pacman(){
     sound.setVolume(70);
     sound.setBuffer(buffer);
     
-    sound2.setVolume(70);
-    sound2.setBuffer(buffer2);
+    
     
     
      if(!texturaanimacion.loadFromFile("assets/animacionpacman.png")){
@@ -127,7 +129,6 @@ sf::Sprite Pacman::getVidas(){
 
 void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico por 50 porque cada posicion de la matriz son 50x50 pixeles
     
-    
     if(presionado!=0){
         player.setTexture(texturaanimacion);
         player.setScale(3,3);
@@ -136,12 +137,17 @@ void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico
     /*dir_move.x=0.f;
     dir_move.y=0.f;*/
     //std::cout << "cont: " << cont << "\n";
-    
-    if(cont == 3){
-      sound3.play();
-      cont = 0;
-    }
-    cont++;
+        if(cont == 3){
+            if(!estadocaza){
+                sound3.play();
+            }
+                cont = 0;
+        }
+        cont++;
+
+        if(estadocaza){
+            sound4.play();
+        }
     
     /*std::cout << "fila" << columna << "\n";
     std::cout << "columna" << fila << "\n";*/
@@ -168,6 +174,9 @@ void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico
         if(mapa->hayCoco(columna,fila)){
             score++;
             sound.play();
+        }else if(mapa->hayCocoGordo(columna,fila)){
+            score++;
+            estadocaza=true;
         }
     }
     
@@ -192,6 +201,9 @@ void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico
     if(mapa->hayCoco(columna,fila)){
         score++;
         sound.play();
+        }else if(mapa->hayCocoGordo(columna,fila)){
+            score++;
+            estadocaza=true;
         }
     }
     
@@ -211,6 +223,9 @@ void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico
         if(mapa->hayCoco(columna,fila)){
             score++;
             sound.play();
+        }else if(mapa->hayCocoGordo(columna,fila)){
+            score++;
+            estadocaza=true;
         }
     }
     
@@ -231,6 +246,9 @@ void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico
         if(mapa->hayCoco(columna,fila)){
             score++;
             sound.play();
+        }else if(mapa->hayCocoGordo(columna,fila)){
+            score++;
+            estadocaza=true;
         }
     }
     
@@ -243,6 +261,10 @@ void Pacman::updatePos(int presionado, Map* mapa, float deltaTime){ //multiplico
     if(score==59){
         win=true;
     }
+}
+
+void Pacman::setEstadoCaza(bool estado){
+    estadocaza=estado;
 }
 
 void Pacman::interpolate(float d_time, Map* mapa){
@@ -296,6 +318,7 @@ void Pacman::restart(){
         fila = 1;
         columna = 1;
         alive = true;
+        //player.setTexture(texturaanimacion);
     }
 }
 
@@ -303,10 +326,9 @@ void Pacman::resume(){
     
 }
 
-void Pacman::kill(sf::RenderWindow& window, bool& isPlay, float deltaTime){
+void Pacman::kill(){
     alive = false;
     vidas--;
-    sound2.play();
     //fin del juego
 }
 
@@ -331,7 +353,7 @@ Pacman::~Pacman(){
 }
 
 const sf::Sprite &Pacman::getSprite() const{
-    return misprite;
+    return player;
 }
 
 
