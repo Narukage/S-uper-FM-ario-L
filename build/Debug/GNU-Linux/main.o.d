@@ -1,14 +1,3 @@
-build/Debug/GNU-Linux/main.o: main.cpp Game.h Pacman.h CollisionManager.h \
- Map.h Animation.h Ghost.h
+build/Debug/GNU-Linux/main.o: main.cpp Game.h
 
 Game.h:
-
-Pacman.h:
-
-CollisionManager.h:
-
-Map.h:
-
-Animation.h:
-
-Ghost.h:

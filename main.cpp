@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    
+
     Game *p = new Game();
 
     p->run();
