@@ -4,26 +4,32 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+using namespace std;
+
 class Mario {
     
 public:
     Mario();
     virtual ~Mario();
     
-    move();
-    jump();
-    increaseCoins()           { coins++;      };
+    void move(char presionado);
+    void jump();
+    void increaseCoins()           { coins++;      };
     
-    setAlive(bool b)          { alive = b;    };
-    setLifes(int l)           { lifes = l;       };
-    setOnGround(bool g)       { onGround = g; };
+    void setAlive(bool b)          { alive = b;    };
+    void setLifes(int l)           { lifes = l;    };
+    void setOnGround(bool g)       { onGround = g; };
+    
+    sf::Sprite getSprite()         { return sprite; };
     
 private:
     
     int lifes, coins, points;
-    float dx, dy; // velocity components
+    float dx, dy, ac, maxspeed; // velocity components
     bool onGround, alive;
     sf::Sprite sprite;
+    sf::Texture textura;
+    
 };
 
 #endif

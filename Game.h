@@ -2,8 +2,9 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Mario.h"
 
-
+using namespace std;
 
 class Game{
     
@@ -11,19 +12,13 @@ private:
     sf::RenderWindow window;
     sf::Event evento;      
     
-    bool isPlay = true;
-    float cont = 0;
+    bool isPlay     = true;
+    bool pressed    = false;
+    float cont      = 0;
     
-    enum Presionado{
-        none = 0,
-        A = 1,
-        D = 2,
-        S = 3,
-        Space = 4
-    };
+    char presionado;
+    Mario* mario; 
     
-    Presionado presionado;
-   
 private:
     void inicializar();
     void eventos();
