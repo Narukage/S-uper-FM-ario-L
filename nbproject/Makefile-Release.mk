@@ -36,9 +36,15 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Animacion.o \
+	${OBJECTDIR}/Digger.o \
+	${OBJECTDIR}/EIntro.o \
+	${OBJECTDIR}/EPantalla1.o \
+	${OBJECTDIR}/EPantalla2.o \
+	${OBJECTDIR}/EState.o \
 	${OBJECTDIR}/Juego.o \
 	${OBJECTDIR}/Reloj.o \
 	${OBJECTDIR}/Render_Fachada.o \
+	${OBJECTDIR}/Sprite.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/tinystr.o \
 	${OBJECTDIR}/tinyxml.o \
@@ -75,6 +81,31 @@ ${OBJECTDIR}/Animacion.o: Animacion.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Animacion.o Animacion.cpp
 
+${OBJECTDIR}/Digger.o: Digger.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Digger.o Digger.cpp
+
+${OBJECTDIR}/EIntro.o: EIntro.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EIntro.o EIntro.cpp
+
+${OBJECTDIR}/EPantalla1.o: EPantalla1.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EPantalla1.o EPantalla1.cpp
+
+${OBJECTDIR}/EPantalla2.o: EPantalla2.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EPantalla2.o EPantalla2.cpp
+
+${OBJECTDIR}/EState.o: EState.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EState.o EState.cpp
+
 ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -89,6 +120,11 @@ ${OBJECTDIR}/Render_Fachada.o: Render_Fachada.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Render_Fachada.o Render_Fachada.cpp
+
+${OBJECTDIR}/Sprite.o: Sprite.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sprite.o Sprite.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}

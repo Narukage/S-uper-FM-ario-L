@@ -1,6 +1,5 @@
 //##########################################
 //COSAS POR HACER::
-//> Input de teclado
 //> Pintado de sprites
 //> Animaciones
 //> Patrón de estados
@@ -35,32 +34,12 @@ Juego::~Juego() {
 //funcion para inicializar todas las variables del juego
 void Juego::inicializar()
 {
-    //Inicializar el dibuja todo
-    render_fachada = &Render_Fachada::instancia();
-    render_fachada->inicializar(800, 600, "Digger", 60, true);
-    
     //Inicializar variables
     jugando = true;
-}
-
-//Actualizarlo todo
-void Juego::actualizar()
-{
-    //Actualizar fachadas
-    render_fachada->actualizar();
     
-    //Acciones de teclas (cerrar juego)
-    ultima_tecla = render_fachada->getPresionado();
-    if(ultima_tecla == Render_Fachada::Presionado::Salir)
-    {
-        jugando = false;
-    }
-
-}
-
-void Juego::dibujar(float dTime)
-{
-    render_fachada->dibujar(dTime);
+    //Estado actual
+    estado_actual = &EIntro::instancia();
+    estado_actual->inicializar();
 }
 
 //Funcion principal que corre el juego
@@ -71,19 +50,37 @@ void Juego::correr()
     float tiempo = 0.f;
     
     //Bucle principal
-    while(jugando)
+    while(estado_actual->jugando)
     {
         //Update cada 4 frames
         float tiempoDibujado = reloj.tiempoTranscurrido();
         tiempo += tiempoDibujado;
         if(tiempo >= 1/15.f)
         {
-            actualizar();
+            estado_actual->actualizar();
             tiempo = 0.f;
         }
         
-        dibujar(tiempoDibujado);
+        estado_actual->dibujar(tiempoDibujado);
     }
 }
 
+//Limpiar toda la memoria sobrante
+void Juego::limpiar()
+{
     
+}
+
+void Juego::cambia_estado(EState::Estado_tipo tipo)
+{
+    if(tipo == EState::Estado_tipo::INTRO)
+        estado_actual = &EIntro::instancia();
+    
+    if(tipo == EState::Estado_tipo::PANTALLA1)
+        estado_actual = &EPantalla1::instancia();
+    
+    if(tipo == EState::Estado_tipo::PANTALLA2)
+        estado_actual = &EPantalla2::instancia();
+    
+    estado_actual->inicializar();
+}

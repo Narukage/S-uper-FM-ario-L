@@ -36,9 +36,15 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Animacion.o \
+	${OBJECTDIR}/Digger.o \
+	${OBJECTDIR}/EIntro.o \
+	${OBJECTDIR}/EPantalla1.o \
+	${OBJECTDIR}/EPantalla2.o \
+	${OBJECTDIR}/EState.o \
 	${OBJECTDIR}/Juego.o \
 	${OBJECTDIR}/Reloj.o \
 	${OBJECTDIR}/Render_Fachada.o \
+	${OBJECTDIR}/Sprite.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/tinystr.o \
 	${OBJECTDIR}/tinyxml.o \
@@ -79,47 +85,77 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: ${OBJECTFILES}
 ${OBJECTDIR}/Animacion.o: Animacion.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Animacion.o Animacion.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Animacion.o Animacion.cpp
+
+${OBJECTDIR}/Digger.o: Digger.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Digger.o Digger.cpp
+
+${OBJECTDIR}/EIntro.o: EIntro.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EIntro.o EIntro.cpp
+
+${OBJECTDIR}/EPantalla1.o: EPantalla1.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EPantalla1.o EPantalla1.cpp
+
+${OBJECTDIR}/EPantalla2.o: EPantalla2.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EPantalla2.o EPantalla2.cpp
+
+${OBJECTDIR}/EState.o: EState.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EState.o EState.cpp
 
 ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
 
 ${OBJECTDIR}/Reloj.o: Reloj.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Reloj.o Reloj.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Reloj.o Reloj.cpp
 
 ${OBJECTDIR}/Render_Fachada.o: Render_Fachada.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Render_Fachada.o Render_Fachada.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Render_Fachada.o Render_Fachada.cpp
+
+${OBJECTDIR}/Sprite.o: Sprite.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sprite.o Sprite.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/tinystr.o: tinystr.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinystr.o tinystr.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinystr.o tinystr.cpp
 
 ${OBJECTDIR}/tinyxml.o: tinyxml.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinyxml.o tinyxml.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinyxml.o tinyxml.cpp
 
 ${OBJECTDIR}/tinyxmlerror.o: tinyxmlerror.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinyxmlerror.o tinyxmlerror.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinyxmlerror.o tinyxmlerror.cpp
 
 ${OBJECTDIR}/tinyxmlparser.o: tinyxmlparser.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinyxmlparser.o tinyxmlparser.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tinyxmlparser.o tinyxmlparser.cpp
 
 # Subprojects
 .build-subprojects:

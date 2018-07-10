@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Animacion.h"
+#include "Sprite.h"
 
 class Render_Fachada {
 public:
@@ -17,7 +18,8 @@ public:
         S = 3,
         W = 4,
         Space = 5,
-        Salir = 6
+        Salir = 6,
+        Intro = 7
     };
     
     //Constructores y destructores
@@ -38,6 +40,10 @@ public:
     void actualizar_teclado(); //actualiza el ultimo boton presionado
     
     //Sprites y animaciones individuales
+    int Anyadir_animacion(std::string , sf::IntRect* , sf::Vector2i* , int , int, bool);
+    int Anyadir_sprite(std::string , sf::IntRect , sf::Vector2i );
+    void Mover_animacion(int, float, float);
+    void Mover_sprite(int, float, float);
     
     //##########################################
     // GETTERS / SETTERS
@@ -51,7 +57,12 @@ private:
     
     sf::RenderWindow* ventana;   //Ventana principal del juego
     sf::Event evento;            //Evento principal del teclado
-    std::vector<Animacion> sprites; //Lista de todos los sprites a pintar
+    std::vector<Animacion> animaciones; //Lista de todas las animaciones a pintar
+    std::vector<Sprite> mapa;       //Lista de todos los sprites a pintar del mapa
+    
+    //State values
+    int animacion_id;
+    int sprite_id;
 };
 
 #endif /* RENDER_FACHADA_H */

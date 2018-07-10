@@ -6,12 +6,11 @@ using namespace std;
 int main() {
 
     //Nuevo juego
-    Juego *juego = new Juego();
+    Juego* juego = &Juego::instancia();
 
     //correr juego
     juego->correr();
     
-    delete juego;
     return 0;
 }
 

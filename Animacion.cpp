@@ -1,19 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Animacion.cpp
- * Author: alexei
- * 
- * Created on 9 de julio de 2018, 19:14
- */
-
+#include <iostream>
 #include <SFML/System/Vector2.hpp>
 
 #include "Animacion.h"
+
 
 //##########################################
 //CONSUTRCTORES & DESTRUCTORES
@@ -31,7 +20,7 @@ Animacion::~Animacion() {
 //##########################################
 //PRINCIPALES
 //##########################################
-void Animacion::inicializar(std::string fichero, sf::IntRect* coordenadas, sf::Vector2i* origenes, int num_fotogramas, int frames_por_segundo = 60, bool en_bucle = true)
+void Animacion::inicializar(int ident, std::string fichero, sf::IntRect* coordenadas, sf::Vector2i* origenes, int num_fotogramas, int frames_por_segundo = 60, bool en_bucle = true)
 {
     //Leer textura
     if(!textura.loadFromFile(fichero)){
@@ -52,12 +41,13 @@ void Animacion::inicializar(std::string fichero, sf::IntRect* coordenadas, sf::V
     frame_actual = 0;
     velocidad_frames = 1.0/frames_por_segundo;
     bucle = en_bucle;
+    id = ident;
 }
 
 void Animacion::set_posicion(float x, float y)
 {
     for(int i = 0; i < num_frames; i++)
-        frames[i].setPosition(float x, float y);
+        frames[i].setPosition( x,  y);
 }
 
 void Animacion::set_origen(int x, int y, int pos) 
@@ -66,30 +56,32 @@ void Animacion::set_origen(int x, int y, int pos)
     if(pos < 0)
     {
         for(int i = 0; i < num_frames; i++)
-            frames[i].setPosition(float x, float y);
+            frames[i].setOrigin( x,  y);
     }
     else
     {
-        frames[pos].setPosition(float x, float y);  
+        frames[pos].setOrigin( x,  y);  
     }
 }
 
 void Animacion::set_rotacion(float x)
 {
     for(int i = 0; i < num_frames; i++)
-        frames[i].setRotation(float x);
+        frames[i].setRotation( x);
 }
 
 void Animacion::set_tamanyo(float x, float y)
 {
     for(int i = 0; i < num_frames; i++)
-        frames[i].setScale(float x, float y);
+        frames[i].setScale( x, y);
 }
 
 //Cambia y recoge datos
 void Animacion::set_color(sf::Color c)
 {
-    color = c;
+    color = c;    
+    for(int i = 0; i < num_frames; i++)
+        frames[i].setColor(color);
 }
 
 void Animacion::set_velocidad(int vel)
@@ -97,11 +89,22 @@ void Animacion::set_velocidad(int vel)
     velocidad_frames = 1.0/vel;
 }
 
-int Animacion::get_frame_actual()
+sf::Sprite Animacion::get_frame_actual()
 {
-    return frame_actual;
+    //Que no se salga del tamaño total
+    frame_actual++;
+    if(frame_actual >= num_frames)
+        frame_actual = 0;
+    
+    return frames[frame_actual];
 }
+
 sf::Vector2f Animacion::get_posicion()
 {
     return frames[0].getPosition();
+}
+
+int Animacion::get_id()
+{
+    return id;
 }
