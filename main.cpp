@@ -1,16 +1,17 @@
-#include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Game.h"
+#include "Juego.h"
 
 using namespace std;
 
 int main() {
 
-    Game *p = new Game();
+    //Nuevo juego
+    Juego *juego = new Juego();
 
-    p->run();
+    //correr juego
+    juego->correr();
     
-    delete p;
+    delete juego;
     return 0;
 }
 

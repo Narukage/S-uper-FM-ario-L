@@ -7,18 +7,20 @@
       <logicalFolder name="SourceFiles"
                      displayName="Source Files"
                      projectFiles="true">
-        <itemPath>Game.cpp</itemPath>
-        <itemPath>Map.cpp</itemPath>
-        <itemPath>Mario.cpp</itemPath>
+        <itemPath>Animacion.cpp</itemPath>
+        <itemPath>Animacion.h</itemPath>
+        <itemPath>Juego.cpp</itemPath>
+        <itemPath>Reloj.cpp</itemPath>
+        <itemPath>Reloj.h</itemPath>
+        <itemPath>Render_Fachada.cpp</itemPath>
+        <itemPath>Render_Fachada.h</itemPath>
         <itemPath>main.cpp</itemPath>
         <itemPath>tinystr.cpp</itemPath>
         <itemPath>tinyxml.cpp</itemPath>
         <itemPath>tinyxmlerror.cpp</itemPath>
         <itemPath>tinyxmlparser.cpp</itemPath>
       </logicalFolder>
-      <itemPath>Game.h</itemPath>
-      <itemPath>Map.h</itemPath>
-      <itemPath>Mario.h</itemPath>
+      <itemPath>Juego.h</itemPath>
       <itemPath>tinystr.h</itemPath>
       <itemPath>tinyxml.h</itemPath>
     </logicalFolder>
@@ -53,28 +55,32 @@
           </incDir>
         </ccTool>
         <linkerTool>
+          <output>${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l</output>
           <linkerAddLib>
             <pElem>/usr/lib/x86_64-linux-gnu</pElem>
           </linkerAddLib>
           <linkerLibItems>
-            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-window.so</linkerLibFileItem>
-            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-graphics.so</linkerLibFileItem>
-            <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-system.so</linkerLibFileItem>
-            <linkerLibLibItem>sfml-audio</linkerLibLibItem>
+            <linkerLibFileItem>/usr/lib/libsfml-window.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/libsfml-graphics.so</linkerLibFileItem>
+            <linkerLibFileItem>/usr/lib/libsfml-system.so</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="Game.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Animacion.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Game.h" ex="false" tool="3" flavor2="0">
+      <item path="Animacion.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Map.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Map.h" ex="false" tool="3" flavor2="0">
+      <item path="Juego.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Mario.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Reloj.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Mario.h" ex="false" tool="3" flavor2="0">
+      <item path="Reloj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Render_Fachada.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Render_Fachada.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -111,17 +117,21 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Game.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Animacion.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Game.h" ex="false" tool="3" flavor2="0">
+      <item path="Animacion.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Map.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Map.h" ex="false" tool="3" flavor2="0">
+      <item path="Juego.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Mario.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Reloj.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Mario.h" ex="false" tool="3" flavor2="0">
+      <item path="Reloj.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Render_Fachada.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Render_Fachada.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

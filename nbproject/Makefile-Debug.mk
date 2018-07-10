@@ -35,9 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Game.o \
-	${OBJECTDIR}/Map.o \
-	${OBJECTDIR}/Mario.o \
+	${OBJECTDIR}/Animacion.o \
+	${OBJECTDIR}/Juego.o \
+	${OBJECTDIR}/Reloj.o \
+	${OBJECTDIR}/Render_Fachada.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/tinystr.o \
 	${OBJECTDIR}/tinyxml.o \
@@ -59,36 +60,41 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/libsfml-window.so /usr/lib/x86_64-linux-gnu/libsfml-graphics.so /usr/lib/x86_64-linux-gnu/libsfml-system.so -lsfml-audio
+LDLIBSOPTIONS=-L/usr/lib/x86_64-linux-gnu /usr/lib/libsfml-window.so /usr/lib/libsfml-graphics.so /usr/lib/libsfml-system.so
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/x86_64-linux-gnu/libsfml-window.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/libsfml-window.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/libsfml-graphics.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/x86_64-linux-gnu/libsfml-system.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/libsfml-system.so
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Game.o: Game.cpp
+${OBJECTDIR}/Animacion.o: Animacion.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Game.o Game.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Animacion.o Animacion.cpp
 
-${OBJECTDIR}/Map.o: Map.cpp
+${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Map.o Map.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
 
-${OBJECTDIR}/Mario.o: Mario.cpp
+${OBJECTDIR}/Reloj.o: Reloj.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Mario.o Mario.cpp
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Reloj.o Reloj.cpp
+
+${OBJECTDIR}/Render_Fachada.o: Render_Fachada.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Render_Fachada.o Render_Fachada.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -121,7 +127,7 @@ ${OBJECTDIR}/tinyxmlparser.o: tinyxmlparser.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-window.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-graphics.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-system.so
+	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-system.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-window.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-graphics.so
 	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l
 
 # Subprojects

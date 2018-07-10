@@ -1,3 +1,7 @@
-build/Debug/GNU-Linux/main.o: main.cpp Game.h
+build/Debug/GNU-Linux/main.o: main.cpp Juego.h Render_Fachada.h Reloj.h
 
-Game.h:
+Juego.h:
+
+Render_Fachada.h:
+
+Reloj.h:

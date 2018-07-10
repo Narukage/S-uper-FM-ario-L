@@ -35,9 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Game.o \
-	${OBJECTDIR}/Map.o \
-	${OBJECTDIR}/Mario.o \
+	${OBJECTDIR}/Animacion.o \
+	${OBJECTDIR}/Juego.o \
+	${OBJECTDIR}/Reloj.o \
+	${OBJECTDIR}/Render_Fachada.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/tinystr.o \
 	${OBJECTDIR}/tinyxml.o \
@@ -69,20 +70,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Game.o: Game.cpp
+${OBJECTDIR}/Animacion.o: Animacion.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Game.o Game.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Animacion.o Animacion.cpp
 
-${OBJECTDIR}/Map.o: Map.cpp
+${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Map.o Map.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
 
-${OBJECTDIR}/Mario.o: Mario.cpp
+${OBJECTDIR}/Reloj.o: Reloj.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Mario.o Mario.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Reloj.o Reloj.cpp
+
+${OBJECTDIR}/Render_Fachada.o: Render_Fachada.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Render_Fachada.o Render_Fachada.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
