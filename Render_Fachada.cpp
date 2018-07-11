@@ -128,6 +128,9 @@ void Render_Fachada::dibujar(float dTime)
         ventana->draw(animaciones[i]->get_frame_actual(dTime));
     }
     
+    //Dibujar HUD
+    ventana->draw(text);
+    
     //Mostrar en ventana lo grabado en el buffer
     ventana->display();
 }
@@ -363,6 +366,7 @@ void Render_Fachada::cargar_mapa(int id)
 
 void Render_Fachada::dibujar_mapa()
 {
+    //Recorrer tileset pintando
     for(int y=0; y<_height; y++){
         for(int x=0; x<_width; x++){
             if(_tilemapSprite[0][y][x]!=NULL){
@@ -383,8 +387,8 @@ void Render_Fachada::dibujar_mapa()
 
 void Render_Fachada::cargarHUD()
 {
-     //Cargar fuente
-    if(!font.loadFromFile("assets/sprites/arial.ttf"))
+    //Cargar fuente
+    if(!font.loadFromFile("assets/sprites/prstart.ttf"))
     {
         //Imprimir error
         std::cout<<"Se ha roto este bello texto"<<std::endl;
@@ -399,18 +403,16 @@ void Render_Fachada::cargarHUD()
     text.setCharacterSize(24);
 
     //Color
-    text.setFillColor(sf::Color::Red);
-
-    // set the text style
-    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-
-    ...
-
-    // inside the main loop, between window.clear() and window.display()
-    window.draw(text);
+    text.setFillColor(sf::Color::Blue);
+    
+    //Text position
+    text.setPosition(50,10);
 }
 
-void Render_Fachada::dibujarHUD()
+void Render_Fachada::dibujarHUD(int puntos, int limite)
 {   
-   
+    std::string p = std::to_string(puntos);
+    std::string l = std::to_string(limite);
+    
+    text.setString(p + "/" + l);
 }

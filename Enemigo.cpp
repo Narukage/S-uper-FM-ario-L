@@ -10,7 +10,7 @@ Enemigo::~Enemigo() {
     
 }
 
-void Enemigo::mover(Render_Fachada::Presionado p)
+void Enemigo::mover()
 {
     if(p == Render_Fachada::Presionado::W)
     {

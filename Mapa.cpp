@@ -39,6 +39,25 @@ void Mapa::cargar_mapa(int tipo)
         }
     }
     
+    if(tipo == 1)
+    {
+        casillas = new Casilla**[tamanyo_x];
+        for(int i = 0; i < tamanyo_x; i++)
+        {
+            casillas[i] = new Casilla*[tamanyo_y];
+            for(int j = 0; j < tamanyo_y; j++){
+                casillas[i][j] = new Casilla();
+                casillas[i][j]->activada = true;
+                casillas[i][j]->puntos = 15;
+                Render_Fachada* render = &Render_Fachada::instancia();
+                int id = render->Anyadir_sprite("assets/sprites/pared2.png", sf::IntRect(0,0,16,16), sf::Vector2i(25,25));
+                casillas[i][j]->sprite = render->Devolver_sprite(id);
+                casillas[i][j]->sprite->set_tamanyo(50.0f/16.0f, 50.0f/16.0f);
+                casillas[i][j]->sprite->set_posicion(75+i*50,75+j*50);
+                
+            }
+        }
+    }
 }
 
 float Mapa::eliminar_casilla(sf::Vector2f pos)

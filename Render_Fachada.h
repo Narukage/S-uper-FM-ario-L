@@ -56,7 +56,7 @@ public:
     
     //Dibujar HUD
     void cargarHUD();
-    void dibujarHUD();
+    void dibujarHUD(int, int);
     
     //##########################################
     // GETTERS / SETTERS

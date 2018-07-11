@@ -4,6 +4,7 @@
 
 #include "Animacion.h"
 #include "Sprite.h"
+#include "Juego.h"
 
 EPantalla1::EPantalla1() {
 }
@@ -22,6 +23,7 @@ void EPantalla1::inicializar()
 {    
     //Inicializar el dibuja todo
     render_fachada = &Render_Fachada::instancia();
+    render_fachada->cargarHUD();
     
     //Inicializar variables
     jugando = true;
@@ -66,14 +68,21 @@ void EPantalla1::actualizar()
     //Eliminar casillas
     puntos_actuales += mapa->eliminar_casilla(digger->animacion_sprite->get_posicion());
     
+    //Actualizar HUD
+    render_fachada->dibujarHUD(puntos_actuales, puntos_ganar);
     
-    std::cout<<"Puntos: "<<puntos_actuales<<"/"<<puntos_ganar<<std::endl;
     //Salida de emergencia
     if(ultima_tecla == Render_Fachada::Presionado::Salir)
     {
         jugando = false;
     }
     
+    //Señal de victoria
+    if(puntos_actuales >= puntos_ganar)
+    {
+        render_fachada->limpiar();
+        Juego::instancia().cambia_estado(EState::Estado_tipo::PANTALLA2);
+    }
 }
 
 void EPantalla1::dibujar(float dTime)
