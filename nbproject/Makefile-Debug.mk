@@ -35,6 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/AnimationManager.o \
+	${OBJECTDIR}/Camera.o \
+	${OBJECTDIR}/CollisionManager.o \
+	${OBJECTDIR}/Enemy.o \
 	${OBJECTDIR}/Game.o \
 	${OBJECTDIR}/Map.o \
 	${OBJECTDIR}/Mario.o \
@@ -74,6 +78,26 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: /usr/lib/x86_64-lin
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/s-uper-fm-ario-l ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/AnimationManager.o: AnimationManager.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AnimationManager.o AnimationManager.cpp
+
+${OBJECTDIR}/Camera.o: Camera.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Camera.o Camera.cpp
+
+${OBJECTDIR}/CollisionManager.o: CollisionManager.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollisionManager.o CollisionManager.cpp
+
+${OBJECTDIR}/Enemy.o: Enemy.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Enemy.o Enemy.cpp
 
 ${OBJECTDIR}/Game.o: Game.cpp
 	${MKDIR} -p ${OBJECTDIR}

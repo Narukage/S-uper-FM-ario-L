@@ -7,6 +7,10 @@
       <logicalFolder name="SourceFiles"
                      displayName="Source Files"
                      projectFiles="true">
+        <itemPath>AnimationManager.cpp</itemPath>
+        <itemPath>Camera.cpp</itemPath>
+        <itemPath>CollisionManager.cpp</itemPath>
+        <itemPath>Enemy.cpp</itemPath>
         <itemPath>Game.cpp</itemPath>
         <itemPath>Map.cpp</itemPath>
         <itemPath>Mario.cpp</itemPath>
@@ -16,7 +20,12 @@
         <itemPath>tinyxmlerror.cpp</itemPath>
         <itemPath>tinyxmlparser.cpp</itemPath>
       </logicalFolder>
+      <itemPath>AnimationManager.h</itemPath>
+      <itemPath>Camera.h</itemPath>
+      <itemPath>CollisionManager.h</itemPath>
+      <itemPath>Enemy.h</itemPath>
       <itemPath>Game.h</itemPath>
+      <itemPath>IFachada.h</itemPath>
       <itemPath>Map.h</itemPath>
       <itemPath>Mario.h</itemPath>
       <itemPath>tinystr.h</itemPath>
@@ -64,9 +73,27 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="AnimationManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AnimationManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Camera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Camera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollisionManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollisionManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Enemy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Enemy.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IFachada.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Map.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -111,9 +138,27 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="AnimationManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AnimationManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Camera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Camera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollisionManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollisionManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Enemy.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Enemy.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IFachada.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Map.cpp" ex="false" tool="1" flavor2="0">
       </item>
