@@ -26,6 +26,22 @@ void EIntro::inicializar()
     //Inicializar variables
     jugando = true;
     seleccionado = 0;
+    
+    //Menú
+    int id = render_fachada->Anyadir_sprite("assets/sprites/pared.png", sf::IntRect(0,0,16,16), sf::Vector2i(25,25));
+    selector = render_fachada->Devolver_sprite(id);
+    selector->set_tamanyo(50.0f/16.0f, 50.0f/16.0f);
+    selector->set_posicion(270,200);
+    
+     id = render_fachada->Anyadir_sprite("assets/sprites/botonplay.png", sf::IntRect(0,0,200,50), sf::Vector2i(0,0));
+    seleccion1 = render_fachada->Devolver_sprite(id);
+  //  seleccion1->set_tamanyo(50.0f/16.0f, 50.0f/16.0f);
+    seleccion1->set_posicion(280, 125);
+    
+     id = render_fachada->Anyadir_sprite("assets/sprites/botonexit.png", sf::IntRect(0,0,200,50), sf::Vector2i(0,0));
+    seleccion2 = render_fachada->Devolver_sprite(id);
+   // seleccion2->set_tamanyo(50.0f/16.0f, 50.0f/16.0f);
+    seleccion2->set_posicion(280, 225);
 }
 
 void EIntro::actualizar()
@@ -40,18 +56,20 @@ void EIntro::actualizar()
     if(ultima_tecla == Render_Fachada::Presionado::W)
     {
         seleccionado++;
+        selector->set_posicion(270,300);
         if(seleccionado>1){
             seleccionado = 0;
+            selector->set_posicion(270,200);
         }
-        std::cout<<"hola holita222   a  "<<seleccionado<<std::endl;
     }
     if(ultima_tecla == Render_Fachada::Presionado::S)
     {
         seleccionado--;
+        selector->set_posicion(270,200);
         if(seleccionado<0){
             seleccionado = 1;
+            selector->set_posicion(270,300);
         }
-        std::cout<<"hola holita "<<seleccionado<<std::endl;
     }
     if(ultima_tecla == Render_Fachada::Presionado::Intro)
     {
@@ -62,7 +80,9 @@ void EIntro::actualizar()
         
         if(seleccionado == 0)
         {
-        std::cout<<"SSSSSSSSSSSSSSs "<<seleccionado<<std::endl;
+            render_fachada->Borrar_sprite(selector->get_id());
+            render_fachada->Borrar_sprite(seleccion1->get_id());
+            render_fachada->Borrar_sprite(seleccion2->get_id());
             Juego::instancia().cambia_estado(EState::Estado_tipo::PANTALLA1);
         }
     }

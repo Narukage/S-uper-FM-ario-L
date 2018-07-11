@@ -36,6 +36,10 @@ private:
     Render_Fachada* render_fachada;          //Dibuja_todo
     Render_Fachada::Presionado ultima_tecla; //Ultima teclada presionada
     
+    Sprite* selector;
+    Sprite* seleccion1;
+    Sprite* seleccion2;
+    
     int seleccionado; //Opcion del menú seleccionada
 };
 

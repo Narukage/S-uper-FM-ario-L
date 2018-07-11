@@ -35,6 +35,7 @@ public:
     void inicializar(int, int, std::string, int, bool);
     void actualizar();
     void dibujar(float);
+    void limpiar();
     
     //Teclado
     void actualizar_teclado(); //actualiza el ultimo boton presionado
@@ -44,6 +45,18 @@ public:
     int Anyadir_sprite(const char* , sf::IntRect , sf::Vector2i );
     void Mover_animacion(int, float, float);
     void Mover_sprite(int, float, float);
+    Animacion* Devolver_animacion(int);
+    Sprite* Devolver_sprite(int);
+    void Borrar_animacion(int);
+    void Borrar_sprite(int);
+    
+    //Mapa
+    void cargar_mapa(int);
+    void dibujar_mapa();
+    
+    //Dibujar HUD
+    void cargarHUD();
+    void dibujarHUD();
     
     //##########################################
     // GETTERS / SETTERS
@@ -51,8 +64,9 @@ public:
     Presionado getPresionado(){
         return presionado;
     }
-private:
     
+private:
+    //Datos generales
     Presionado presionado;       //Última tecla presionada
     
     sf::RenderWindow* ventana;   //Ventana principal del juego
@@ -60,9 +74,26 @@ private:
     std::vector<Animacion*> animaciones; //Lista de todas las animaciones a pintar
     std::vector<Sprite*> mapa;       //Lista de todos los sprites a pintar del mapa
     
-    //State values
+    //Valores de estado
     int animacion_id;
     int sprite_id;
+    
+    //Tilemap
+    int _width;
+    int _tilewidth;
+
+    int ***_tilemap;
+    int _numlayers;
+    int _height;
+    int _tileheigth;
+
+    sf::Sprite ****_tilemapSprite;
+    sf::Sprite *_tilesetSprite;
+    sf::Texture _tilesetTexture;
+    
+    //HUD
+    sf::Font font;
+    sf::Text text;
 };
 
 #endif /* RENDER_FACHADA_H */

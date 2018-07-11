@@ -77,6 +77,14 @@ void Animacion::set_tamanyo(float x, float y)
         frames[i].setScale( x, y);
 }
 
+void Animacion::move(float x, float y)
+{
+    for(int i = 0; i < num_frames; i++)
+    {
+        frames[i].move( x,  y);
+    }
+}
+
 //Cambia y recoge datos
 void Animacion::set_color(sf::Color c)
 {

@@ -17,6 +17,7 @@ public:
     void set_origen(int, int);
     void set_rotacion(float);
     void set_tamanyo(float, float);
+    void move(float, float);
     
     //Cambia y recoge datos
     void set_color(sf::Color);

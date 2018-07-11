@@ -1,11 +1,6 @@
 //##########################################
 //COSAS POR HACER::
-//> Pintado de sprites
-//> Animaciones
-//> Patrón de estados
-//> Control y movimiento de personaje por pantalla
 //> Sistema de puntos
-//> Pintado por xml
 //> Colisiones de enemigos por pixel
 //> Consumir paredes con pintado de fondo por pixel (sencillito)
 //> IA de los enemigos 

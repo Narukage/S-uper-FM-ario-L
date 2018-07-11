@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Animacion.o \
+	${OBJECTDIR}/Casilla.o \
 	${OBJECTDIR}/Digger.o \
 	${OBJECTDIR}/EIntro.o \
 	${OBJECTDIR}/EPantalla1.o \
@@ -43,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/EState.o \
 	${OBJECTDIR}/Enemigo.o \
 	${OBJECTDIR}/Juego.o \
+	${OBJECTDIR}/Mapa.o \
 	${OBJECTDIR}/Reloj.o \
 	${OBJECTDIR}/Render_Fachada.o \
 	${OBJECTDIR}/Sprite.o \
@@ -88,6 +90,11 @@ ${OBJECTDIR}/Animacion.o: Animacion.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Animacion.o Animacion.cpp
 
+${OBJECTDIR}/Casilla.o: Casilla.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Casilla.o Casilla.cpp
+
 ${OBJECTDIR}/Digger.o: Digger.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -122,6 +129,11 @@ ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Juego.o Juego.cpp
+
+${OBJECTDIR}/Mapa.o: Mapa.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Mapa.o Mapa.cpp
 
 ${OBJECTDIR}/Reloj.o: Reloj.cpp
 	${MKDIR} -p ${OBJECTDIR}

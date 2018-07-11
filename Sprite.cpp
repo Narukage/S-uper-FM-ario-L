@@ -58,6 +58,11 @@ void Sprite::set_tamanyo(float x, float y)
     sprite.setScale( x,  y);
 }
 
+void Sprite::move(float x, float y)
+{
+    sprite.move( x,  y);
+}
+
 //Cambia y recoge datos
 void Sprite::set_color(sf::Color c)
 {

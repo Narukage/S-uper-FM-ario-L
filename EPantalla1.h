@@ -4,6 +4,7 @@
 #include "EState.h"
 #include "Render_Fachada.h"
 #include "Digger.h"
+#include "Mapa.h"
 
 class EPantalla1 : public EState {
 public:
@@ -35,7 +36,9 @@ private:
     
     //Elementos del mapa
     Digger* digger;
-    
+    Mapa* mapa;
+    int puntos_ganar; //Puntos para ganar
+    int puntos_actuales; //Puntos actuales
 };
 
 #endif /* EPANTALLA1_H */

@@ -2,6 +2,8 @@
 #include "EPantalla1.h"
 #include <iostream>
 
+#include "Animacion.h"
+#include "Sprite.h"
 
 EPantalla1::EPantalla1() {
 }
@@ -35,26 +37,51 @@ void EPantalla1::inicializar()
     origenes_digger[0] = sf::Vector2i(8, 12);
     origenes_digger[1] = sf::Vector2i(8, 12);
     digger->animacion = render_fachada->Anyadir_animacion("assets/sprites/digger_sprite.png", lista_digger, origenes_digger, 2, 10, true);
-    render_fachada->Mover_animacion(digger->animacion, 10, 10);
+    digger->animacion_sprite = render_fachada->Devolver_animacion(digger->animacion);
+    digger->animacion_sprite->set_tamanyo(50/16,50/23);
+    digger->animacion_sprite->set_posicion(50,50);
     
     //Crear enemigos
+    
+    //Cargar mapa
+    //render_fachada->cargar_mapa(0);
+    mapa = new Mapa();
+    mapa->cargar_mapa(0);
+    
+    //Marcador
+    puntos_actuales = 0;
+    puntos_ganar = 500;
 }
 
 void EPantalla1::actualizar()
 {
     render_fachada->actualizar();
     
+    //Acciones de teclas (mover personaje)
+    ultima_tecla = render_fachada->getPresionado();
+    
+    //Control del personaje
+    digger->mover(ultima_tecla);
+    
+    //Eliminar casillas
+    puntos_actuales += mapa->eliminar_casilla(digger->animacion_sprite->get_posicion());
     
     
+    std::cout<<"Puntos: "<<puntos_actuales<<"/"<<puntos_ganar<<std::endl;
     //Salida de emergencia
     if(ultima_tecla == Render_Fachada::Presionado::Salir)
     {
         jugando = false;
     }
+    
 }
 
 void EPantalla1::dibujar(float dTime)
 {
+    //Interpolar posiciones
+    digger->moverInterpolado(dTime);
+    
+    //Dibujar
     render_fachada->dibujar(dTime);
 }
 

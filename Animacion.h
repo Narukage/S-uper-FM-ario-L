@@ -20,6 +20,7 @@ public:
     void set_origen(int, int, int);
     void set_rotacion(float);
     void set_tamanyo(float, float);
+    void move(float, float);
     
     //Cambia y recoge datos
     void set_color(sf::Color);
@@ -40,6 +41,7 @@ private:
     int num_frames;         //Número de frames de la animación
     bool bucle;             //Si se repite en bucle o no
     float hasta_next_frame; //tiempo que falta hasta el siguiente frame
+    sf::Vector2f next_move; //Siguiente movimiento
     
     //Estado
     int frame_actual;       //Indica el frame actual a pintar
