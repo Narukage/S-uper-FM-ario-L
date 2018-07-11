@@ -71,6 +71,7 @@ void Juego::limpiar()
     
 }
 
+//Cambia el estado de juego pasando el identificador y asignando la instancia a la clase abstracta
 void Juego::cambia_estado(EState::Estado_tipo tipo)
 {
     if(tipo == EState::Estado_tipo::INTRO)
@@ -82,5 +83,6 @@ void Juego::cambia_estado(EState::Estado_tipo tipo)
     if(tipo == EState::Estado_tipo::PANTALLA2)
         estado_actual = &EPantalla2::instancia();
     
+    //tras el cambio inicializamos el nuevo sistema
     estado_actual->inicializar();
 }

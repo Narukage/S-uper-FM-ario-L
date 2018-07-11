@@ -20,7 +20,7 @@ Animacion::~Animacion() {
 //##########################################
 //PRINCIPALES
 //##########################################
-void Animacion::inicializar(int ident, std::string fichero, sf::IntRect* coordenadas, sf::Vector2i* origenes, int num_fotogramas, int frames_por_segundo = 60, bool en_bucle = true)
+void Animacion::inicializar(int ident, const char* fichero, sf::IntRect* coordenadas, sf::Vector2i* origenes, int num_fotogramas, int frames_por_segundo = 60, bool en_bucle = true)
 {
     //Leer textura
     if(!textura.loadFromFile(fichero)){
@@ -40,6 +40,7 @@ void Animacion::inicializar(int ident, std::string fichero, sf::IntRect* coorden
     num_frames = num_fotogramas;
     frame_actual = 0;
     velocidad_frames = 1.0/frames_por_segundo;
+    hasta_next_frame = velocidad_frames;
     bucle = en_bucle;
     id = ident;
 }
@@ -89,12 +90,29 @@ void Animacion::set_velocidad(int vel)
     velocidad_frames = 1.0/vel;
 }
 
-sf::Sprite Animacion::get_frame_actual()
+sf::Sprite Animacion::get_frame_actual(float dTime)
 {
-    //Que no se salga del tamaño total
-    frame_actual++;
-    if(frame_actual >= num_frames)
-        frame_actual = 0;
+    //Vamos restando el tiempo hasta el siguiente frame
+    hasta_next_frame -= dTime;
+    
+    //Si se acaba el contador, empieza el nuevo
+    if(hasta_next_frame < 0)
+    {
+        hasta_next_frame = velocidad_frames;
+        frame_actual++;
+        if(frame_actual >= num_frames)
+        {
+            //Si es en bucle o no, empezamos desde el frame 0 o lo dejamos siempre en el último
+            if(bucle == true)
+            {
+                frame_actual = 0;
+            }else{
+                frame_actual = num_frames - 1;
+            }
+        }
+        
+    }
+
     
     return frames[frame_actual];
 }

@@ -19,7 +19,7 @@ Sprite::~Sprite() {
 //##########################################
 //PRINCIPALES
 //##########################################
-void Sprite::inicializar(int ident, std::string fichero, sf::IntRect coordenadas, sf::Vector2i origen)
+void Sprite::inicializar(int ident, const char* fichero, sf::IntRect coordenadas, sf::Vector2i origen)
 {
     //Leer textura
     if(!textura.loadFromFile(fichero)){

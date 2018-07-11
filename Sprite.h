@@ -10,7 +10,7 @@ public:
     virtual ~Sprite();
     
     //Funciones principales
-    void inicializar(int, std::string, sf::IntRect, sf::Vector2i);
+    void inicializar(int, const char*, sf::IntRect, sf::Vector2i);
     
     //Transformaciones
     void set_posicion(float, float);

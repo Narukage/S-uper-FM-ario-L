@@ -19,6 +19,8 @@
         <itemPath>EPantalla2.h</itemPath>
         <itemPath>EState.cpp</itemPath>
         <itemPath>EState.h</itemPath>
+        <itemPath>Enemigo.cpp</itemPath>
+        <itemPath>Enemigo.h</itemPath>
         <itemPath>Juego.cpp</itemPath>
         <itemPath>Reloj.cpp</itemPath>
         <itemPath>Reloj.h</itemPath>
@@ -103,6 +105,10 @@
       </item>
       <item path="EState.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Enemigo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Enemigo.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Juego.h" ex="false" tool="3" flavor2="0">
@@ -177,6 +183,10 @@
       <item path="EState.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="EState.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Enemigo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Enemigo.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Juego.cpp" ex="false" tool="1" flavor2="0">
       </item>

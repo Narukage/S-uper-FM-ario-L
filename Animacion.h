@@ -13,7 +13,7 @@ public:
     virtual ~Animacion();
     
     //Funciones principales
-    void inicializar(int, std::string, sf::IntRect*, sf::Vector2i*, int, int, bool);
+    void inicializar(int, const char*, sf::IntRect*, sf::Vector2i*, int, int, bool);
     
     //Transformaciones
     void set_posicion(float, float);
@@ -24,7 +24,7 @@ public:
     //Cambia y recoge datos
     void set_color(sf::Color);
     void set_velocidad(int);
-    sf::Sprite get_frame_actual();
+    sf::Sprite get_frame_actual(float);
     sf::Vector2f get_posicion();
     int get_id();
     
@@ -39,6 +39,7 @@ private:
     float velocidad_frames; //Duracion de cada frame
     int num_frames;         //Número de frames de la animación
     bool bucle;             //Si se repite en bucle o no
+    float hasta_next_frame; //tiempo que falta hasta el siguiente frame
     
     //Estado
     int frame_actual;       //Indica el frame actual a pintar

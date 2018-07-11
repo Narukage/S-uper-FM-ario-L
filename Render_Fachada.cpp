@@ -34,6 +34,10 @@ void Render_Fachada::inicializar(int ancho, int alto, std::string nombre_ventana
     //Variables de SFML para opciones de ventana
     ventana->setFramerateLimit(tasa_frames);
     ventana->setVerticalSyncEnabled(v_sync);
+    
+    //Inicializaciones de variables
+    animacion_id = 0;
+    sprite_id = 0;
 }
 
 //Actualizar la fachada
@@ -99,24 +103,24 @@ void Render_Fachada::dibujar(float dTime)
     //Pintar sprites del mapa
     for(int i = 0; i < mapa.size(); i++)
     {
-        ventana->draw(mapa[i].get_sprite());
+        ventana->draw(mapa[i]->get_sprite());
     }
     
     //Pintar animaciones
     for(int i = 0; i < animaciones.size(); i++)
     {
-        ventana->draw(animaciones[i].get_frame_actual());
+        ventana->draw(animaciones[i]->get_frame_actual(dTime));
     }
     
     //Mostrar en ventana lo grabado en el buffer
     ventana->display();
 }
 
-int Render_Fachada::Anyadir_animacion(std::string fichero, sf::IntRect* coordenadas, sf::Vector2i* origenes, int num_fotogramas, int frames_por_segundo = 60, bool en_bucle = true)
+int Render_Fachada::Anyadir_animacion(const char* fichero, sf::IntRect* coordenadas, sf::Vector2i* origenes, int num_fotogramas, int frames_por_segundo = 60, bool en_bucle = true)
 {
     //Creamos la animacion
-    Animacion a;
-    a.inicializar(animacion_id, fichero, coordenadas, origenes, num_fotogramas, frames_por_segundo, en_bucle);
+    Animacion* a = new Animacion();
+    a->inicializar(animacion_id, fichero, coordenadas, origenes, num_fotogramas, frames_por_segundo, en_bucle);
     
     //Metemos en la lista
     animaciones.push_back(a);
@@ -127,11 +131,11 @@ int Render_Fachada::Anyadir_animacion(std::string fichero, sf::IntRect* coordena
     return (animacion_id -1);
 }
 
-int Render_Fachada::Anyadir_sprite(std::string fichero, sf::IntRect coordenadas, sf::Vector2i origen)
+int Render_Fachada::Anyadir_sprite(const char* fichero, sf::IntRect coordenadas, sf::Vector2i origen)
 {
     //Creamos la animacion
-    Sprite a;
-    a.inicializar(sprite_id, fichero, coordenadas, origen);
+    Sprite* a = new Sprite();
+    a->inicializar(sprite_id, fichero, coordenadas, origen);
     
     //Metemos en la lista
     mapa.push_back(a);
@@ -146,8 +150,8 @@ void Render_Fachada::Mover_animacion(int id, float x, float y)
 {
     for(int i = 0; i < animaciones.size(); i++)
     {
-        if(animaciones[i].get_id() == id)
-            animaciones[i].set_posicion(x, y);
+        if(animaciones[i]->get_id() == id)
+            animaciones[i]->set_posicion(x, y);
     }
 }
 
@@ -155,7 +159,7 @@ void Render_Fachada::Mover_sprite(int id, float x, float y)
 {
     for(int i = 0; i < mapa.size(); i++)
     {
-        if(mapa[i].get_id() == id)
-            mapa[i].set_posicion(x, y);
+        if(mapa[i]->get_id() == id)
+            mapa[i]->set_posicion(x, y);
     }
 }

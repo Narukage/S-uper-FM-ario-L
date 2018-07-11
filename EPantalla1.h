@@ -2,6 +2,8 @@
 #define EPANTALLA1_H
 
 #include "EState.h"
+#include "Render_Fachada.h"
+#include "Digger.h"
 
 class EPantalla1 : public EState {
 public:
@@ -21,6 +23,7 @@ public:
     virtual void inicializar();
     virtual void actualizar();
     virtual void dibujar(float dTime);
+    void limpiar();
     
 private:
     //##########################################
@@ -29,6 +32,9 @@ private:
     //Variables del sistema
     Render_Fachada* render_fachada;          //Dibuja_todo
     Render_Fachada::Presionado ultima_tecla; //Ultima teclada presionada
+    
+    //Elementos del mapa
+    Digger* digger;
     
 };
 

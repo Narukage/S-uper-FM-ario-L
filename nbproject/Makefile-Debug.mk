@@ -41,6 +41,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/EPantalla1.o \
 	${OBJECTDIR}/EPantalla2.o \
 	${OBJECTDIR}/EState.o \
+	${OBJECTDIR}/Enemigo.o \
 	${OBJECTDIR}/Juego.o \
 	${OBJECTDIR}/Reloj.o \
 	${OBJECTDIR}/Render_Fachada.o \
@@ -111,6 +112,11 @@ ${OBJECTDIR}/EState.o: EState.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EState.o EState.cpp
+
+${OBJECTDIR}/Enemigo.o: Enemigo.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Enemigo.o Enemigo.cpp
 
 ${OBJECTDIR}/Juego.o: Juego.cpp
 	${MKDIR} -p ${OBJECTDIR}

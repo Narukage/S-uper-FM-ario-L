@@ -40,8 +40,8 @@ public:
     void actualizar_teclado(); //actualiza el ultimo boton presionado
     
     //Sprites y animaciones individuales
-    int Anyadir_animacion(std::string , sf::IntRect* , sf::Vector2i* , int , int, bool);
-    int Anyadir_sprite(std::string , sf::IntRect , sf::Vector2i );
+    int Anyadir_animacion(const char *, sf::IntRect* , sf::Vector2i* , int , int, bool);
+    int Anyadir_sprite(const char* , sf::IntRect , sf::Vector2i );
     void Mover_animacion(int, float, float);
     void Mover_sprite(int, float, float);
     
@@ -57,8 +57,8 @@ private:
     
     sf::RenderWindow* ventana;   //Ventana principal del juego
     sf::Event evento;            //Evento principal del teclado
-    std::vector<Animacion> animaciones; //Lista de todas las animaciones a pintar
-    std::vector<Sprite> mapa;       //Lista de todos los sprites a pintar del mapa
+    std::vector<Animacion*> animaciones; //Lista de todas las animaciones a pintar
+    std::vector<Sprite*> mapa;       //Lista de todos los sprites a pintar del mapa
     
     //State values
     int animacion_id;
