@@ -21,7 +21,10 @@ void EIntro::inicializar()
 {
     //Inicializar el dibuja todo
     render_fachada = &Render_Fachada::instancia();
-    render_fachada->inicializar(800, 600, "Digger", 60, true);
+    if(!Juego::instancia().reinicio)
+    {
+        render_fachada->inicializar(800, 600, "Digger", 60, true);
+    }
     
     //Inicializar variables
     jugando = true;

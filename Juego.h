@@ -30,6 +30,7 @@ public:
     
     //Cambia estado del juego desde fuera
     void cambia_estado(EState::Estado_tipo);
+    bool reinicio = false;
     
 private:
     void inicializar();

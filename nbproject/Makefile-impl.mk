@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=S-uper-FM-ario-L
+PROJECTNAME=Digger
 
 # Active Configuration
 DEFAULTCONF=Debug

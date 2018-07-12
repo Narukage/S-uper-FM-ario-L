@@ -130,6 +130,11 @@ sf::Vector2f Animacion::get_posicion()
     return frames[0].getPosition();
 }
 
+sf::FloatRect Animacion::get_global_bounds()
+{
+    return frames[0].getGlobalBounds();
+}
+
 int Animacion::get_id()
 {
     return id;

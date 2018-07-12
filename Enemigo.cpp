@@ -10,40 +10,32 @@ Enemigo::~Enemigo() {
     
 }
 
-void Enemigo::mover()
+bool Enemigo::mover(sf::FloatRect dig, sf::Vector2f pos)
 {
-    if(p == Render_Fachada::Presionado::W)
+    bool return_colision = false;
+    
+    if(pos.y <= animacion_sprite->get_posicion().y)
     {
         animacion_sprite->set_rotacion(0);
-        sig_pos_x = 0;
         sig_pos_y = -1;
     }
     
-    if(p == Render_Fachada::Presionado::S)
+    if(pos.y > animacion_sprite->get_posicion().y)
     {
         animacion_sprite->set_rotacion(180);
-        sig_pos_x = 0;
         sig_pos_y = 1;
     }
     
-    if(p == Render_Fachada::Presionado::A)
+    if(pos.x <= animacion_sprite->get_posicion().x)
     {
         animacion_sprite->set_rotacion(270);
         sig_pos_x = -1;
-        sig_pos_y = 0;
     }
     
-    if(p == Render_Fachada::Presionado::D)
+    if(pos.x > animacion_sprite->get_posicion().x)
     {
         animacion_sprite->set_rotacion(90);
         sig_pos_x = 1;
-        sig_pos_y = 0;
-    }
-    
-    if(p == Render_Fachada::Presionado::none)
-    {
-        sig_pos_x = 0;
-        sig_pos_y = 0;
     }
     
     //Comprobar colisión
@@ -64,6 +56,13 @@ void Enemigo::mover()
     {
         sig_pos_y = 0;
     }
+    
+    //Colision con personaje
+    if(dig.intersects(animacion_sprite->get_global_bounds())){
+        return_colision = true;
+    }
+    
+    return return_colision;
 }
 
 void Enemigo::moverInterpolado(float dTime)

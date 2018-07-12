@@ -12,16 +12,16 @@ CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
 CND_ARTIFACT_NAME_Debug=s-uper-fm-ario-l
 CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/s-uper-fm-ario-l
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=s-uper-fm-ario-l.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/s-uper-fm-ario-l.tar
+CND_PACKAGE_NAME_Debug=digger.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/digger.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=s-uper-fm-ario-l
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/s-uper-fm-ario-l
+CND_ARTIFACT_NAME_Release=digger
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/digger
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=s-uper-fm-ario-l.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/s-uper-fm-ario-l.tar
+CND_PACKAGE_NAME_Release=digger.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/digger.tar
 #
 # include compiler specific variables
 #

@@ -27,6 +27,7 @@ public:
     void set_velocidad(int);
     sf::Sprite get_frame_actual(float);
     sf::Vector2f get_posicion();
+    sf::FloatRect get_global_bounds();
     int get_id();
     
 private:
